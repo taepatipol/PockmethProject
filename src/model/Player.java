@@ -1,6 +1,6 @@
 package model;
 
-public class Player implements Entity{
+public class Player{
 	
 		static final int STARTX = 0;
 		static final int STARTY = 0;
@@ -15,5 +15,41 @@ public class Player implements Entity{
 			this.speed = 1;
 		}
 		
+		public boolean move(int di) { //input 0 1 2 3 up down left right output true=success false=not success
+			switch(di) {
+			case 0:
+				if(this.checkDirection(0)) {
+					this.ycoor++;
+					return true;
+				}
+				return false;
+			case 1:
+				if(this.checkDirection(1)) {
+					this.ycoor--;
+					return true;
+				}
+				return false;
+			case 2:
+				if(this.checkDirection(2)) {
+					this.xcoor--;
+					return true;
+				}
+				return false;
+			case 3:
+				if(this.checkDirection(3)) {
+					this.ycoor++;
+					return true;
+				}
+				return false;
+			default:
+				return false;
+			}
+		}
+		
+		private boolean checkDirection(int di) { //input 0 1 2 3 up down left right output true=can false=cant
+			//not finished
+			return true;
+		}
+
 		
 }
