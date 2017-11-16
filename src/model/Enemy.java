@@ -1,5 +1,73 @@
 package model;
 
-public interface Enemy implements Entity{
+import java.util.Random;
+
+public abstract class Enemy {
+	static final int STARTX = 0;
+	static final int STARTY = 0;
+
+	float xcoor;
+	float ycoor;
+	int speed;
 	
+	public float getXcoor() {
+		return xcoor;
+	}
+
+	public void setXcoor(float xcoor) {
+		this.xcoor = xcoor;
+	}
+
+	public float getYcoor() {
+		return ycoor;
+	}
+
+	public void setYcoor(float ycoor) {
+		this.ycoor = ycoor;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	
+	
+	public Enemy() { //set enemy with random location
+		Random rn = new Random();
+		this.xcoor = rn.nextInt(145);
+		this.ycoor = rn.nextInt(145);
+		
+	}
+	
+	public boolean canMove(int di) { //check if this direction can be move to
+		return true;
+	}
+	
+	
+	public boolean move() { //0 is up 1 is left 2 is down 3 is right
+		Random rn = new Random();
+		int di = rn.nextInt(4);
+		System.out.println(di);
+		if (canMove(di)) {
+		switch(di) {
+		case 0:
+			setYcoor(this.getYcoor()+1);
+			return true;
+		case 1:
+			setXcoor(this.getXcoor()+1);
+			return true;
+		case 2:
+			setYcoor(this.getYcoor()-1);
+			return true;
+		case 3:	
+			setXcoor(this.getXcoor()-1);
+			return true;
+		}}
+		return false;
+		
+	}
 }
