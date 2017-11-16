@@ -49,25 +49,36 @@ public abstract class Enemy {
 	
 	
 	public boolean move() { //0 is up 1 is left 2 is down 3 is right
-		Random rn = new Random();
-		int di = rn.nextInt(4);
-		System.out.println(di);
-		if (canMove(di)) {
-		switch(di) {
-		case 0:
-			setYcoor(this.getYcoor()+1);
-			return true;
-		case 1:
-			setXcoor(this.getXcoor()+1);
-			return true;
-		case 2:
-			setYcoor(this.getYcoor()-1);
-			return true;
-		case 3:	
-			setXcoor(this.getXcoor()-1);
-			return true;
-		}}
-		return false;
-		
+		boolean isMove = false;
+		while(!isMove) {
+			Random rn = new Random();
+			int di = rn.nextInt(4);
+			//System.out.println(di);
+			if (canMove(di)) {
+				switch(di) {
+				case 0:
+					setYcoor(this.getYcoor()+1);
+					isMove = true;
+					break;
+				case 1:
+					setXcoor(this.getXcoor()+1);
+					isMove = true;
+					break;
+				case 2:
+					setYcoor(this.getYcoor()-1);
+					isMove = true;
+					break;
+				case 3:	
+					setXcoor(this.getXcoor()-1);
+					isMove = true;
+					break;
+				}		
+			}
+			di = rn.nextInt(4);
+		}
+	return isMove;
 	}
+	
+	
+	
 }

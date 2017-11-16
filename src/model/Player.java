@@ -9,6 +9,32 @@ public class Player{
 		float ycoor;
 		int speed;
 		
+		public float getXcoor() {
+			return xcoor;
+		}
+
+		public void setXcoor(float xcoor) {
+			this.xcoor = xcoor;
+		}
+
+		public float getYcoor() {
+			return ycoor;
+		}
+
+		public void setYcoor(float ycoor) {
+			this.ycoor = ycoor;
+		}
+
+		public int getSpeed() {
+			return speed;
+		}
+
+		public void setSpeed(int speed) {
+			this.speed = speed;
+		}
+		
+		
+		
 		public Player() {
 			this.xcoor = STARTX;
 			this.ycoor = STARTY;
