@@ -30,6 +30,13 @@ public class GameModel {
 		}
 	}
 	
+	public boolean checkNextLevel() {
+		float x = getPlayerXcoor();
+		float y = getPlayerYcoor();
+		if(x==1150 && y==0) {return true;}
+		return false;
+	}
+	
 	public GameModel() {
 		this.gameState = new GameState();
 	}
@@ -45,6 +52,10 @@ public class GameModel {
 	public int getTimeSecond() {
 		long x = getTimeNanosecond()/1000000000;
 		return (int)x;
+	}
+	
+	public void increasedLevel() {
+		this.gameState.updateLevel();
 	}
 
 }

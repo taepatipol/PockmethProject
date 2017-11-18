@@ -28,6 +28,16 @@ public class GameMain {
 		
 	}
 	
+	
+	public static void goToNextLevel() {
+		model.increasedLevel();
+		canvas = new GameCanvas(model);
+		logic = new GameLogic(model,canvas);
+		SceneManager.gotoSceneOf(canvas);
+		logic.startGame();
+		canvas.startAnimation();
+	}
+	
 	public static void stopGameLogicAndAnimation() {
 		// TODO fill code
 		logic.stopGame();
