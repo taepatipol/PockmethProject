@@ -1,6 +1,6 @@
 package menu;
 
-//import game.GameMain;
+import game.GameMain;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -40,7 +40,7 @@ public class MainMenu extends Canvas {
 		
 		this.setOnKeyPressed((KeyEvent event) -> {
 			
-			//if(event.getCode().equals(KeyCode.ENTER)) {System.out.println('1');GameMain.newGame();}
+			if(event.getCode().equals(KeyCode.ENTER)) {System.out.println('1'); GameMain.newGame();}
 			if(event.getCode().equals(KeyCode.ESCAPE)) { System.out.println('1');Platform.exit() ; }
 		});
 	

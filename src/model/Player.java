@@ -3,7 +3,7 @@ package model;
 public class Player{
 	
 		static final int STARTX = 0;
-		static final int STARTY = 0;
+		static final int STARTY = 750;
 	
 		float xcoor;
 		float ycoor;
@@ -39,29 +39,29 @@ public class Player{
 			this.speed = 1;
 		}
 		
-		public boolean move(int di) { //input 0 1 2 3 up down left right output true=success false=not success
+		public boolean move(char di) { //input 0 1 2 3 up down left right output true=success false=not success
 			switch(di) {
-			case 0:
-				if(this.checkDirection(0)) {
-					this.ycoor++;
+			case 'w':
+				if(this.checkDirection('w')) {
+					this.ycoor-=50;
 					return true;
 				}
 				return false;
-			case 1:
-				if(this.checkDirection(1)) {
-					this.ycoor--;
+			case 's':
+				if(this.checkDirection('s')) {
+					this.ycoor+=50;
 					return true;
 				}
 				return false;
-			case 2:
-				if(this.checkDirection(2)) {
-					this.xcoor--;
+			case 'a':
+				if(this.checkDirection('a')) {
+					this.xcoor-=50;
 					return true;
 				}
 				return false;
-			case 3:
-				if(this.checkDirection(3)) {
-					this.ycoor++;
+			case 'd':
+				if(this.checkDirection('d')) {
+					this.xcoor+=50;
 					return true;
 				}
 				return false;

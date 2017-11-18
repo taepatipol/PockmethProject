@@ -2,9 +2,9 @@ package game;
 
 import java.util.Optional;
 
-import game.logic.GameLogic;
-import game.model.GameModel;
-import game.ui.GameCanvas;
+import logic.GameLogic;
+import model.GameModel;
+import ui.GameCanvas;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -36,7 +36,7 @@ public class GameMain {
 	
 	private static void displayResult() {
 		// TODO fill code
-		 Alert alert = new Alert(AlertType.WARNING, "Game Over! Your score is "+model.getScore()+".");
+		 Alert alert = new Alert(AlertType.WARNING, "Game Over! Your score is "+".");
 		 alert.setHeaderText(null);
 		 alert.setGraphic(null);
 		 alert.setTitle(null);

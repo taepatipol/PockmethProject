@@ -3,21 +3,25 @@ package model;
 
 public class GameState {
 
-	private static final long START_NANO_TIME = 60000000000L;
+	private static final long START_NANO_TIME = 0;
 
 	int score;
 
 	Player player;
 	Enemy[] enemies;
 	int level;
-	long remainingNanoTime;
+	long elapasedNanoTime;
 	
 	//Environment & Enemy 
 	
 	GameState() {
 		player = new Player();
-		level = 0;
-		remainingNanoTime = START_NANO_TIME;
+		level = 1;
+		elapasedNanoTime = START_NANO_TIME;
+		enemies = new Enemy[5+level];
+		for(int i = 0;i<enemies.length;i++) {
+			enemies[i] = new NormalEnemy();
+		}
 	}
 
 }
