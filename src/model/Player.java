@@ -33,8 +33,6 @@ public class Player{
 			this.speed = speed;
 		}
 		
-		
-		
 		public Player() {
 			this.xcoor = STARTX;
 			this.ycoor = STARTY;
