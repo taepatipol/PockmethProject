@@ -38,8 +38,8 @@ public abstract class Enemy {
 	
 	public Enemy() { //set enemy with random location
 		Random rn = new Random();
-		this.xcoor = rn.nextInt(145);
-		this.ycoor = rn.nextInt(145);
+		this.xcoor = rn.nextInt(1201);
+		this.ycoor = rn.nextInt(801);
 		
 	}
 	
@@ -57,19 +57,19 @@ public abstract class Enemy {
 			if (canMove(di)) {
 				switch(di) {
 				case 0:
-					setYcoor(this.getYcoor()+1);
+					setYcoor(this.getYcoor()+50);
 					isMove = true;
 					break;
 				case 1:
-					setXcoor(this.getXcoor()+1);
+					setXcoor(this.getXcoor()+50);
 					isMove = true;
 					break;
 				case 2:
-					setYcoor(this.getYcoor()-1);
+					setYcoor(this.getYcoor()-50);
 					isMove = true;
 					break;
 				case 3:	
-					setXcoor(this.getXcoor()-1);
+					setXcoor(this.getXcoor()-50);
 					isMove = true;
 					break;
 				}		

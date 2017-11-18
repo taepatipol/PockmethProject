@@ -16,8 +16,12 @@ public class GameState {
 	
 	GameState() {
 		player = new Player();
-		level = 0;
+		level = 1;
 		remainingNanoTime = START_NANO_TIME;
+		enemies = new Enemy[5+level];
+		for(int i = 0;i<enemies.length;i++) {
+			enemies[i] = new NormalEnemy();
+		}
 	}
 
 }

@@ -1,8 +1,8 @@
 package logic;
 
 import game.GameMain;
-//import model.GameModel;
-//import ui.GameCanvas;
+import model.GameModel;
+import ui.GameCanvas;
 
 
 public class GameLogic {
@@ -23,7 +23,7 @@ public class GameLogic {
 
 	public void startGame() {
 		this.isGameRunning = true;
-		canvas.setWordString(model.getCurrentWordString());
+		
 		new Thread(this::gameLoop, "Game Loop Thread").start();
 	}
 
@@ -51,14 +51,8 @@ public class GameLogic {
 
 	private void updateGame(long elapsedTime) {
 		// TODO fill code
-		String before = this.model.getCurrentWordString();
-		char c = CharacterInput.pollTriggeredCharacter();
-		while(c!=CharacterInput.NO_CHARACTER) {
-			model.typeCharacter(c);
-			if(this.model.getCurrentWordString()!=before) {canvas.setWordString(this.model.getCurrentWordString());}
-			c=CharacterInput.pollTriggeredCharacter();
-		}
+		
 		model.decreaseRemainingTime(elapsedTime);
-		if(model.getTimeNanosecond() <= 0) {GameMain.stopGame();}
+		//if(model.getTimeNanosecond() <= 0) {GameMain.stopGame();}
 	}
 }
