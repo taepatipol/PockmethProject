@@ -13,6 +13,12 @@ public class SlowEnemy extends Enemy {
 		
 	}
 	
+	public boolean move() {
+		timer++;
+		if(timer%2==0) {super.move();return true;}
+		return false;
+	}
+	
 	
 	
 }
