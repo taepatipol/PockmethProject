@@ -38,8 +38,10 @@ public abstract class Enemy {
 	
 	public Enemy() { //set enemy with random location
 		Random rn = new Random();
-		this.xcoor = rn.nextInt(1201);
-		this.ycoor = rn.nextInt(801);
+		this.xcoor = rn.nextInt(25);
+		this.xcoor = this.xcoor*50;
+		this.ycoor = rn.nextInt(17);
+		this.ycoor = this.ycoor*50;
 		
 	}
 	

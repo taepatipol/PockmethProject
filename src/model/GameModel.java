@@ -34,12 +34,12 @@ public class GameModel {
 		this.gameState = new GameState();
 	}
 		
-	public void decreaseRemainingTime(long decreasedNanoTime) {
-		this.gameState.remainingNanoTime -= decreasedNanoTime;
+	public void increaseTime(long increasedNanoTime) {
+		this.gameState.elapasedNanoTime += increasedNanoTime;
 	}
 	
 	public long getTimeNanosecond() {
-		return this.gameState.remainingNanoTime;
+		return this.gameState.elapasedNanoTime;
 	}
 	
 	public int getTimeSecond() {

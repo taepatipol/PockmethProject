@@ -1,6 +1,7 @@
 package logic;
 
 import game.GameMain;
+
 import model.GameModel;
 import ui.GameCanvas;
 
@@ -13,6 +14,7 @@ public class GameLogic {
 	private GameModel model;
 	private GameCanvas canvas;
 	private boolean isGameRunning;
+
 
 	public GameLogic(GameModel model, GameCanvas canvas) {
 		// TODO fill code
@@ -35,11 +37,16 @@ public class GameLogic {
 		long lastLoopStartTime = System.nanoTime();
 		while (isGameRunning) {
 			long elapsedTime = System.nanoTime() - lastLoopStartTime;
+			int time = model.getTimeSecond();
 			if (elapsedTime >= LOOP_TIME) {
 				lastLoopStartTime += LOOP_TIME;
 
 				updateGame(elapsedTime);
+				model.increaseTime(elapsedTime);
+				
 			}
+			
+			if(time!=model.getTimeSecond()) {model.enemyMove();time=model.getTimeSecond();}
 
 			try {
 				Thread.sleep(1);
@@ -51,8 +58,17 @@ public class GameLogic {
 
 	private void updateGame(long elapsedTime) {
 		// TODO fill code
+		System.out.print(model.getTimeSecond());
 		
-		model.decreaseRemainingTime(elapsedTime);
+		
+		//int time = model.getTimeSecond();
+		
+		
 		//if(model.getTimeNanosecond() <= 0) {GameMain.stopGame();}
+	}
+	
+	private void updateEnemy() {
+		model.enemyMove();
+		
 	}
 }

@@ -5,7 +5,6 @@ import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
 
 import game.GameMain;
-//import game.model.GameModel;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -57,6 +56,8 @@ public class GameCanvas extends Canvas {
 				
 				updateAnimation(now);
 			}
+			
+			
 
 			try {
 				Thread.sleep(1);
@@ -115,7 +116,7 @@ public class GameCanvas extends Canvas {
 				char c = event.getText().charAt(0);
 				System.out.println(c);
 				model.playerMove(c);
-				model.enemyMove();
+				
 				cu.setPressed(true);
 			}
 		});
