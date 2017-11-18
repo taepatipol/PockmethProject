@@ -116,7 +116,7 @@ public class GameCanvas extends Canvas {
 				char c = event.getText().charAt(0);
 				System.out.println(c);
 				model.playerMove(c);
-				
+				if(model.checkNextLevel()) {GameMain.goToNextLevel();}
 				cu.setPressed(true);
 			}
 		});
