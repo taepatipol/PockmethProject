@@ -4,10 +4,12 @@ public class Position {
 	private int x;
 	private int y;
 	private boolean walkable;
+	public String status;
 	
 	public Position(int x,int y) {
 		this.x = x;
 		this.y = y;
+		this.status = "";
 	}
 	public int getX() {
 		return x;

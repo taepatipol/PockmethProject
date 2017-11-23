@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import logic.GameLogic;
 import model.GameModel;
+import model.MapModel;
 import ui.GameCanvas;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;

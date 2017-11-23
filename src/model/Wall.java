@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Wall { //uses to make positions not walkable
+public class Wall { //not used now
 	private int xs;
 	private int xf;
 	private int ys;

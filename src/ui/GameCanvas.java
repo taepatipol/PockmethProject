@@ -30,7 +30,6 @@ public class GameCanvas extends Canvas {
 	private boolean isAnimationRunning;
 
 	public GameCanvas(GameModel model) {
-		// TODO fill code
 		super(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 		this.model = model;
 		this.isAnimationRunning = false;
@@ -75,8 +74,8 @@ public class GameCanvas extends Canvas {
 		double playerXcoor = model.getPlayerXcoor();
 		double playerYcoor = model.getPlayerYcoor();
 		
+		//draw wall below
 		
-		// TODO fill code
 		GraphicsContext gc = this.getGraphicsContext2D();
 		gc.setFill(Color.BLACK);
 		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
@@ -108,7 +107,7 @@ public class GameCanvas extends Canvas {
 	}
  
 	private void addKeyEventHandler() {
-		// TODO fill code
+		
 		CodeUtility cu = new CodeUtility();
 		
 		this.setOnKeyPressed((KeyEvent event) -> {

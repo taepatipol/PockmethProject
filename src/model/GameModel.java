@@ -37,7 +37,7 @@ public class GameModel {
 		return false;
 	}
 	
-	public GameModel() {
+	public GameModel() { //constructor
 		this.gameState = new GameState();
 	}
 		
