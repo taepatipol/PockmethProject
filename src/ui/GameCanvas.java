@@ -16,6 +16,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import model.Enemy;
 import model.GameModel;
+import model.Position;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -95,6 +96,13 @@ public class GameCanvas extends Canvas {
 		
 		gc.fillOval(1150, 0, 50, 50);//Exit
 		
+		for(Position p : model.getWall()) {
+			System.out.println(p.getX());
+			gc.setFill(Color.GREEN);
+			gc.fillRect(p.getX(), p.getY(), 50, 50);
+			
+		}
+		
 		
 		
 		
@@ -113,7 +121,7 @@ public class GameCanvas extends Canvas {
 		this.setOnKeyPressed((KeyEvent event) -> {
 			if(!cu.isPressed) {	
 				char c = event.getText().charAt(0);
-				System.out.println(c);
+				
 				model.playerMove(c);
 				if(model.checkNextLevel()) {GameMain.goToNextLevel();}
 				cu.setPressed(true);
@@ -121,7 +129,7 @@ public class GameCanvas extends Canvas {
 		});
 		
 		this.setOnKeyReleased((KeyEvent event) -> {
-			System.out.println("Key Released");
+			
 			cu.setPressed(false);
 			
 		});

@@ -46,7 +46,7 @@ public class GameLogic {
 				
 			}
 			
-			if(time!=model.getTimeSecond()) {model.enemyMove();time=model.getTimeSecond();}
+			if(time!=model.getTimeSecond()) {updateEnemy();time=model.getTimeSecond();}
 
 			try {
 				Thread.sleep(1);
@@ -58,7 +58,7 @@ public class GameLogic {
 
 	private void updateGame(long elapsedTime) {
 		// TODO fill code
-		System.out.print(model.getTimeSecond());
+		//System.out.print(model.getTimeSecond());
 		
 		
 		//int time = model.getTimeSecond();

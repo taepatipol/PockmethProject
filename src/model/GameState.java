@@ -14,6 +14,8 @@ public class GameState {
 	
 	//Environment & Enemy 
 	
+	int getLevel() {return this.level;}
+	
 	GameState() {
 		player = new Player();
 		level = 1;

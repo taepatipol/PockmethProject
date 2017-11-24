@@ -42,38 +42,37 @@ public class Player{
 		public boolean move(char di) { //input 0 1 2 3 up down left right output true=success false=not success
 			switch(di) {
 			case 'w':
-				if(this.checkDirection('w')) {
+				
 					this.ycoor-=50;
 					return true;
-				}
-				return false;
+				
 			case 's':
-				if(this.checkDirection('s')) {
+				
 					this.ycoor+=50;
 					return true;
-				}
-				return false;
+				
+			
 			case 'a':
-				if(this.checkDirection('a')) {
+				
 					this.xcoor-=50;
 					return true;
-				}
-				return false;
+				
+				
 			case 'd':
-				if(this.checkDirection('d')) {
+				
 					this.xcoor+=50;
 					return true;
-				}
-				return false;
+				
 			default:
 				return false;
 			}
 		}
 		
-		private boolean checkDirection(int di) { //input 0 1 2 3 up down left right output true=can false=cant
+	/*	private boolean checkDirection(int di) { //input 0 1 2 3 up down left right output true=can false=cant
 			//not finished
 			return true;
-		}
+			}
+	*/	
 
 		
 }

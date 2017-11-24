@@ -10,6 +10,7 @@ public class Position {
 		this.x = x;
 		this.y = y;
 		this.status = "";
+		this.walkable = true;
 	}
 	public int getX() {
 		return x;

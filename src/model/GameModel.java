@@ -1,10 +1,12 @@
 package model;
 
+import java.util.Vector;
 
 public class GameModel {
 	
 	// TODO fill code
 	private GameState gameState;
+	private MapModel map;
 	
 	public float getPlayerXcoor() {
 		return this.gameState.player.getXcoor();
@@ -19,8 +21,10 @@ public class GameModel {
 	}
 	
 	public void playerMove(char di) {
+		if(checkDirection(di)) {
 		this.gameState.player.move(di);
 		return;
+		}
 	}
 	
 	public void enemyMove() {
@@ -39,6 +43,7 @@ public class GameModel {
 	
 	public GameModel() { //constructor
 		this.gameState = new GameState();
+		this.map = new MapModel(1200,800);
 	}
 		
 	public void increaseTime(long increasedNanoTime) {
@@ -58,4 +63,47 @@ public class GameModel {
 		this.gameState.updateLevel();
 	}
 
+	private boolean checkDirection(char di) { //input 0 1 2 3 up down left right output true=can false=cant
+		//not finished
+		float xplayer = getPlayerXcoor();
+		float yplayer = getPlayerYcoor();
+		System.out.println(xplayer);
+		System.out.println(yplayer);
+		
+		//return true;
+		switch(di) {	
+	case 'w':
+		
+			yplayer-=50;
+			if(!map.getWalkable((int)xplayer, (int)yplayer)) {return false;}
+			return true;
+		
+	case 's':
+		
+			yplayer+=50;
+			if(!map.getWalkable((int)xplayer, (int)yplayer)) {return false;}
+			return true;
+		
+	case 'a':
+		
+			xplayer-=50;
+			if(!map.getWalkable((int)xplayer, (int)yplayer)) {return false;}
+			return true;
+		
+		
+	case 'd':
+		
+			xplayer+=50;
+			if(!map.getWalkable((int)xplayer, (int)yplayer)) {return false;}
+			return true;
+		
+		
+	default:
+		return false;
+	}
+		
+		
+	}
+	
+	public Vector<Position> getWall() {return map.getWall();}
 }
