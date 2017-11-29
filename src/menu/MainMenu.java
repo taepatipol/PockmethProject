@@ -40,8 +40,8 @@ public class MainMenu extends Canvas {
 		
 		this.setOnKeyPressed((KeyEvent event) -> {
 			
-			if(event.getCode().equals(KeyCode.ENTER)) {System.out.println('1'); GameMain.newGame();}
-			if(event.getCode().equals(KeyCode.ESCAPE)) { System.out.println('1');Platform.exit() ; }
+			if(event.getCode().equals(KeyCode.ENTER)) { GameMain.newGame();}
+			if(event.getCode().equals(KeyCode.ESCAPE)) {Platform.exit() ; }
 		});
 	
 		

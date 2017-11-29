@@ -1,6 +1,8 @@
 package ui;
 
 
+import java.net.URISyntaxException;
+
 import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
 
@@ -9,6 +11,7 @@ import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -21,7 +24,7 @@ import window.SceneManager;
 
 public class GameCanvas extends Canvas {
 
-	private static final int FPS = 60;
+	private static final int FPS = 30;
 	private static final long LOOP_TIME = 1000000000 / FPS;
 
 	
@@ -67,7 +70,7 @@ public class GameCanvas extends Canvas {
 		}
 	}
 
-	private void updateAnimation(long now) {
+	private void updateAnimation(long now)  {
 		FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
 		//double wordX = (1 + Math.sin(now * 1e-9)) * (0.5 * (SceneManager.SCENE_WIDTH - currentWordWidth));
 		//double wordY = 0.5 * (SceneManager.SCENE_HEIGHT + fontLoader.getFontMetrics(TEXT_FONT).getLineHeight());
@@ -81,8 +84,12 @@ public class GameCanvas extends Canvas {
 		gc.setFill(Color.BLACK);
 		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		
-		gc.setFill(Color.WHEAT);
-		gc.fillOval(playerXcoor, playerYcoor, 50, 50);//Player
+		drawPlayer(playerXcoor,playerYcoor) ;// Player
+	
+		
+		
+		
+		
 		
 		for(Enemy e : model.getEnemies()) {
 			gc.setFill(Color.PURPLE);
@@ -133,6 +140,16 @@ public class GameCanvas extends Canvas {
 			cu.setPressed(false);
 			
 		});
+		
+	}
+	
+	
+	public void drawPlayer(double width,double height) {
+		GraphicsContext gc =  this.getGraphicsContext2D() ;
+		String imagePath = "file:res/Entity/fish03.jpg";
+	    Image image = new Image(imagePath);
+	    gc.drawImage(image, width, height);
+		
 		
 	}
 

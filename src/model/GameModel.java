@@ -67,8 +67,7 @@ public class GameModel {
 		//not finished
 		float xplayer = getPlayerXcoor();
 		float yplayer = getPlayerYcoor();
-		System.out.println(xplayer);
-		System.out.println(yplayer);
+		
 		
 		//return true;
 		switch(di) {	
