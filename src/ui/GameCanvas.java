@@ -1,22 +1,21 @@
 package ui;
 
-
-import java.net.URISyntaxException;
-
-import com.sun.javafx.tk.FontLoader;
-import com.sun.javafx.tk.Toolkit;
+import java.util.ArrayList;
+import java.util.Random;
 
 import game.GameMain;
-import javafx.application.Platform;
-import javafx.geometry.Pos;
+import ui.CodeUtility;
+import javafx.animation.PathTransition;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
+import logic.GameLogic;
 import model.Enemy;
 import model.GameModel;
 import model.Position;
@@ -24,18 +23,18 @@ import window.SceneManager;
 
 public class GameCanvas extends Canvas {
 
-	private static final int FPS = 30;
+	private static final int FPS = 60;
 	private static final long LOOP_TIME = 1000000000 / FPS;
-
 	
-
 	private GameModel model;
+	private GameLogic logic;
 	private Thread gameAnimation;
 	private boolean isAnimationRunning;
 
 	public GameCanvas(GameModel model) {
 		super(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 		this.model = model;
+		this.logic = new GameLogic(model);
 		this.isAnimationRunning = false;
 		this.addKeyEventHandler();
 	}
@@ -56,11 +55,8 @@ public class GameCanvas extends Canvas {
 			long now = System.nanoTime();
 			if (now - lastLoopStartTime >= LOOP_TIME) {
 				lastLoopStartTime += LOOP_TIME;
-				
 				updateAnimation(now);
 			}
-			
-			
 
 			try {
 				Thread.sleep(1);
@@ -71,86 +67,134 @@ public class GameCanvas extends Canvas {
 	}
 
 	private void updateAnimation(long now)  {
-		FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
-		//double wordX = (1 + Math.sin(now * 1e-9)) * (0.5 * (SceneManager.SCENE_WIDTH - currentWordWidth));
-		//double wordY = 0.5 * (SceneManager.SCENE_HEIGHT + fontLoader.getFontMetrics(TEXT_FONT).getLineHeight());
-		
-		double playerXcoor = model.getPlayerXcoor();
-		double playerYcoor = model.getPlayerYcoor();
-		
-		//draw wall below
-		
 		GraphicsContext gc = this.getGraphicsContext2D();
-		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
-		
-		drawPlayer(playerXcoor,playerYcoor) ;// Player
-	
-		
+		this.model.renderAll(gc);
+		model.getPlayer().update(LOOP_TIME/10000000); //update in animation
+		if(checkCollide(model.getPlayer(),model.getExit())) {model.getPlayer().rebound();}
+		enemyMove();
 		
 		
+		for (Sprite sp : this.model.getEnemy()) {sp.update(LOOP_TIME/10000000);}
+        // game logic
 		
 		
-		for(Enemy e : model.getEnemies()) {
-			gc.setFill(Color.PURPLE);
-			double enemyXcoor = e.getXcoor();
-			double enemyYcoor = e.getYcoor();
-			gc.fillRect(enemyXcoor, enemyYcoor, 50, 50);
+		//Collision Checking
+		
+		//Enemy Collision
+		for (Sprite sp : this.model.getEnemy()) {
+			if(this.model.getPlayer().intersects(sp)) {
+				System.out.println("Collide Enemy");
+			}
 			
 		}
 		
-		gc.setFill(Color.RED);
-		
-		gc.fillOval(1150, 0, 50, 50);//Exit
-		
-		for(Position p : model.getWall()) {
-			System.out.println(p.getX());
-			gc.setFill(Color.GREEN);
-			gc.fillRect(p.getX(), p.getY(), 50, 50);
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
+        if(this.model.getPlayer().intersects(this.model.getExit())) {
+        	System.out.println("Exit reached");
+        	//How to increase Level?
+        	
+        	stopAnimation();
+        	this.model = new GameModel(this.model.getLevel()+1);
+        	startAnimation();
+        	
+        	}
+      
 	}
- 
+	
+	
+	private void enemyMove() {
+		ArrayList<Sprite> enemylist = this.model.getEnemy();
+		for(Sprite sp:enemylist) {
+			Random rn = new Random();
+			int di = rn.nextInt(4);
+			int speed = sp.getSpeed();
+			if(di == 0) {sp.addVelocity(0,-1*speed);}
+			if(di == 1) {sp.addVelocity(1*speed,0);}
+			if(di == 2) {sp.addVelocity(0,1*speed);}
+			if(di == 3) {sp.addVelocity(-1*speed,0);}
+		}
+		
+				
+	}		
+				
 	private void addKeyEventHandler() {
 		
+		//Keyboard event handler
+		GraphicsContext gc = this.getGraphicsContext2D();
 		CodeUtility cu = new CodeUtility();
-		
 		this.setOnKeyPressed((KeyEvent event) -> {
 			if(!cu.isPressed) {	
 				char c = event.getText().charAt(0);
-				
-				model.playerMove(c);
-				if(model.checkNextLevel()) {GameMain.goToNextLevel();}
 				cu.setPressed(true);
+			//	System.out.println("Key pressed");
+				int sp = model.getPlayer().getSpeed();
+		        if (c=='w') {
+		        	model.getPlayer().addVelocity(0,-1*sp);
+		        	
+		        }
+		        if (c=='d') {
+		        	model.getPlayer().addVelocity(1*sp,0);
+		        	
+		        }
+		        if (c=='s') {
+		        	model.getPlayer().addVelocity(0,1*sp);
+		        	
+		        }
+		        if (c=='a') {
+		        	model.getPlayer().addVelocity(-1*sp,0);
+		        	
+		        }
+		          
+		      
+		        model.getPlayer().update(LOOP_TIME/10000000); //might be wrong time
+		        
 			}
 		});
 		
 		this.setOnKeyReleased((KeyEvent event) -> {
-			
+		//	System.out.println("Key Released");
 			cu.setPressed(false);
-			
 		});
 		
-	}
-	
-	
-	public void drawPlayer(double width,double height) {
-		GraphicsContext gc =  this.getGraphicsContext2D() ;
-		String imagePath = "file:res/Entity/fish03.jpg";
-	    Image image = new Image(imagePath);
-	    gc.drawImage(image, width, height);
+		
+
 		
 		
 	}
+	
+	public boolean checkCollide(Sprite a,Sprite b) {
+		if(a.intersects(b)) {return true;}
+		return false;
+	}
+	
+	
+
+	/*
+	 * 	//Background
+		GraphicsContext gc = this.getGraphicsContext2D();
+		gc.setFill(Color.BLACK);
+		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
+		
+		// Player
+		double playerXcoor = model.getPlayerXcoor();
+		double playerYcoor = model.getPlayerYcoor();
+		drawPlayer(playerXcoor,playerYcoor) ;
+		
+		//Enemy
+		for(Enemy e : model.getEnemies()) {
+			gc.setFill(Color.PURPLE);
+			if(e.getSpeed() == 2) {gc.setFill(Color.BLUE);}
+			gc.fillRect(e.getXcoor(), e.getYcoor(), 50, 50);
+		}
+		
+		//Exit
+		gc.setFill(Color.RED);
+		gc.fillOval(1150, 0, 50, 50);
+		
+		//Wall
+		for(Position p : model.getWall()) {
+			gc.setFill(Color.GREEN);
+			gc.fillRect(p.getX(), p.getY(), 50, 50);
+		}
+	 */
 
 }

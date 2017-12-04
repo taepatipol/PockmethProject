@@ -1,9 +1,10 @@
 package model;
 
-public class Position {
+public class Position { //Use to identify wall -> should also be used to get powerup
 	private int x;
 	private int y;
 	private boolean walkable;
+	private boolean hasEnemy;
 	public String status;
 	
 	public Position(int x,int y) {
@@ -11,25 +12,21 @@ public class Position {
 		this.y = y;
 		this.status = "";
 		this.walkable = true;
+		this.hasEnemy = false;
 	}
 	public int getX() {
 		return x;
 	}
-	public void setX(int x) {
-		this.x = x;
-	}
 	public int getY() {
 		return y;
 	}
-	public void setY(int y) {
-		this.y = y;
-	}
-	
 	public boolean isWalkable() {
 		return this.walkable;
 	}
-	
 	public void setWalkable(boolean b) {
 		this.walkable = b;
 	}
+	
+	public boolean hasEnemy() {return this.hasEnemy;}
+	public void setEnemy(boolean b) {this.hasEnemy = b; return;}
 }

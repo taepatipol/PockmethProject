@@ -36,10 +36,8 @@ public class MainMenu extends Canvas {
 	}
 	
 	private void addKeyEventHandler() {
-		//TODO Fill Code
-		
+		//Main Menu event handler; Enter and exit
 		this.setOnKeyPressed((KeyEvent event) -> {
-			
 			if(event.getCode().equals(KeyCode.ENTER)) { GameMain.newGame();}
 			if(event.getCode().equals(KeyCode.ESCAPE)) {Platform.exit() ; }
 		});

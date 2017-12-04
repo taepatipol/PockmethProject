@@ -12,20 +12,17 @@ public class GameLogic {
 	private static final long LOOP_TIME = 1000000000 / FPS;
 
 	private GameModel model;
-	private GameCanvas canvas;
 	private boolean isGameRunning;
 
 
-	public GameLogic(GameModel model, GameCanvas canvas) {
+	public GameLogic(GameModel model) {
 		// TODO fill code
 		this.model = model;
-		this.canvas = canvas;
 		this.isGameRunning = false;
 	}
 
 	public void startGame() {
 		this.isGameRunning = true;
-		
 		new Thread(this::gameLoop, "Game Loop Thread").start();
 	}
 
@@ -40,13 +37,15 @@ public class GameLogic {
 			int time = model.getTimeSecond();
 			if (elapsedTime >= LOOP_TIME) {
 				lastLoopStartTime += LOOP_TIME;
-
 				updateGame(elapsedTime);
 				model.increaseTime(elapsedTime);
 				
 			}
 			
-			if(time!=model.getTimeSecond()) {updateEnemy();time=model.getTimeSecond();}
+		
+				
+				
+			
 
 			try {
 				Thread.sleep(1);
@@ -57,18 +56,12 @@ public class GameLogic {
 	}
 
 	private void updateGame(long elapsedTime) {
-		// TODO fill code
-		//System.out.print(model.getTimeSecond());
-		
-		
-		//int time = model.getTimeSecond();
-		
-		
-		//if(model.getTimeNanosecond() <= 0) {GameMain.stopGame();}
+	/*	if(checkEnemy()== true) {endgame();}
+		if(checkWall()== true) {nomove();} //Might not need to write
+		if(checkPowerUp == true) {powerup();} 
+		if(checkExit == true) {levelup();}
+		*/
 	}
 	
-	private void updateEnemy() {
-		model.enemyMove();
-		
-	}
+	
 }

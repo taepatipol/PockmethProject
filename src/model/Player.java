@@ -33,34 +33,29 @@ public class Player{
 			this.speed = speed;
 		}
 		
-		public Player() {
+		public Player() { //initialize player
 			this.xcoor = STARTX;
 			this.ycoor = STARTY;
 			this.speed = 1;
 		}
 		
 		public boolean move(char di) { //input 0 1 2 3 up down left right output true=success false=not success
+			
 			switch(di) {
 			case 'w':
-				
-					this.ycoor-=50;
+					this.ycoor-=(10*this.speed);
 					return true;
 				
 			case 's':
-				
-					this.ycoor+=50;
+					this.ycoor+=(10*this.speed);
 					return true;
-				
 			
 			case 'a':
-				
-					this.xcoor-=50;
+					this.xcoor-=(10*this.speed);
 					return true;
 				
-				
 			case 'd':
-				
-					this.xcoor+=50;
+					this.xcoor+=(10*this.speed);
 					return true;
 				
 			default:
@@ -68,11 +63,7 @@ public class Player{
 			}
 		}
 		
-	/*	private boolean checkDirection(int di) { //input 0 1 2 3 up down left right output true=can false=cant
-			//not finished
-			return true;
-			}
-	*/	
+	
 
 		
 }
