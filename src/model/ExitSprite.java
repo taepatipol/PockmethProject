@@ -6,6 +6,6 @@ public class ExitSprite extends Sprite{
 	public ExitSprite() {
 		super();
 		setPosition(1100,50);
-		setImage("file:res/Entity/fish01.jpg");
+		setImage("file:res/flag.png");
 	}
 }

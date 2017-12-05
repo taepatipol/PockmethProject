@@ -44,7 +44,10 @@ public class GameModel {
 			this.player = new PlayerSprite();
 			this.map = new Image("file:res/bg.jpg");
 			this.enemylist = new ArrayList<Sprite>();
-			this.enemylist.add(new NormalEnemySprite());
+			for(int ii = 0; ii < 5; ii++) {
+				this.enemylist.add(new NormalEnemySprite());
+			}
+			this.enemylist.add(new BigEnemySprite());
 			this.walllist = border();
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
@@ -59,9 +62,11 @@ public class GameModel {
 			this.player = new PlayerSprite();
 			this.map = new Image("file:res/bg.jpg");
 			this.enemylist = new ArrayList<Sprite>();
-			this.enemylist.add(new NormalEnemySprite());
-			this.enemylist.add(new BigEnemySprite());
-			this.walllist = new ArrayList<Sprite>();
+			this.enemylist.add(new NormalEnemySprite(1000,600));
+			this.enemylist.add(new BigEnemySprite(800,400));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(5, 5, 10, 10));
+			
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
 		}
@@ -129,7 +134,7 @@ public class GameModel {
 		 for(double i=-0;i<1150;i+=50) {
 			 WallSprite sp = new WallSprite();
 			
-			 sp.setPosition((double)i, 750);
+			 sp.setPosition((double)i, 700);
 			 b.add(sp);
 			 WallSprite sp2 = new WallSprite();
 			
@@ -137,8 +142,17 @@ public class GameModel {
 			 b.add(sp2);
 		}
 		 
-		 
 		 return b;
+	}
+	
+	public ArrayList<Sprite> createWall(int x1,int y1,int x2,int y2){
+		ArrayList<Sprite> l = new ArrayList<Sprite>();
+		for(int x = x1; x<=x2; x++) { for(int y = y1; y<=y2; y++) {
+			WallSprite sp = new WallSprite();
+			sp.setPosition(x*50, y*50);
+			l.add(sp);
+		} }
+		return l;
 	}
 	
 	
