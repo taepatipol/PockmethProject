@@ -18,7 +18,6 @@ import javafx.util.Duration;
 import logic.GameLogic;
 import model.Enemy;
 import model.GameModel;
-import model.Position;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -68,17 +67,45 @@ public class GameCanvas extends Canvas {
 
 	private void updateAnimation(long now)  {
 		GraphicsContext gc = this.getGraphicsContext2D();
+		
 		this.model.renderAll(gc);
-		model.getPlayer().update(LOOP_TIME/10000000); //update in animation
-		if(checkCollide(model.getPlayer(),model.getExit())) {model.getPlayer().rebound();}
+		
+		
+		
+		model.getPlayer().update(LOOP_TIME/10000000); //update player animation
+		
+		
+	//	if(checkCollide(model.getPlayer(),model.getExit())) {model.getPlayer().rebound();} //rebound from exit
+		
 		enemyMove();
 		
 		
-		for (Sprite sp : this.model.getEnemy()) {sp.update(LOOP_TIME/10000000);}
+		for (Sprite sp : this.model.getEnemy()) {
+			sp.update(LOOP_TIME/10000000);
+		}
+		for (Sprite sp : this.model.getWall()) {
+			sp.update(LOOP_TIME/10000000);
+		}
         // game logic
 		
 		
 		//Collision Checking
+		
+		//Wall Collision
+		for (Sprite sp : this.model.getWall()) {
+			//Check PLayer
+			if(this.model.getPlayer().intersects(sp)) {
+				System.out.println("Collide Wall");
+				model.getPlayer().rebound();
+			}
+			//Check Enemy and Wall
+			for (Sprite sp1 : this.model.getEnemy()) {
+				if(checkCollide(sp1,sp) ) {
+					System.out.println("Enemy Collide Wall");
+					sp1.rebound();
+				}
+			}
+		}
 		
 		//Enemy Collision
 		for (Sprite sp : this.model.getEnemy()) {
@@ -87,7 +114,7 @@ public class GameCanvas extends Canvas {
 			}
 			
 		}
-		
+		//Exit collide
         if(this.model.getPlayer().intersects(this.model.getExit())) {
         	System.out.println("Exit reached");
         	//How to increase Level?

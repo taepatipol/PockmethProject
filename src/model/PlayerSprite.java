@@ -6,7 +6,7 @@ import ui.Sprite;
 public class PlayerSprite extends Sprite {
 	PlayerSprite() {
 		super();
-		setPosition(0, 750);
+		setPosition(50, 700);
 		setImage("file:res/Entity/fish01.jpg");
 		setSpeed(2);
 	}

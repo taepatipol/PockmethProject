@@ -13,6 +13,7 @@ public class GameModel {
 	private long elaspedNanoTime;
 	private PlayerSprite player;
 	private ArrayList<Sprite> enemylist;
+	private ArrayList<Sprite> walllist;
 	private Image map;
 	private ArrayList<Sprite> powerup;
 	private ExitSprite exit;
@@ -26,6 +27,10 @@ public class GameModel {
 		return this.enemylist;
 	}
 	
+	public ArrayList<Sprite> getWall() {
+		return this.walllist;
+	}
+	
 	public ExitSprite getExit() {return this.exit;}
 	
 	public int getLevel() {return this.level;}
@@ -33,13 +38,14 @@ public class GameModel {
 	//function to get new model
 	public GameModel(int i) {
 		if(i == 1) {
-			System.out.println("LEvel1");
+			System.out.println("Level1");
 			this.level = 1;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
 			this.map = new Image("file:res/bg.jpg");
 			this.enemylist = new ArrayList<Sprite>();
 			this.enemylist.add(new NormalEnemySprite());
+			this.walllist = border();
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
 			
@@ -47,7 +53,7 @@ public class GameModel {
 			
 		}
 		if(i == 2) {
-			System.out.println("LEvel2");
+			System.out.println("Level2");
 			this.level = 2;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -55,6 +61,7 @@ public class GameModel {
 			this.enemylist = new ArrayList<Sprite>();
 			this.enemylist.add(new NormalEnemySprite());
 			this.enemylist.add(new BigEnemySprite());
+			this.walllist = new ArrayList<Sprite>();
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
 		}
@@ -83,6 +90,7 @@ public class GameModel {
 		gc.drawImage(this.map, 0, 0);
 		this.player.render(gc);
 		for(Sprite sp : this.enemylist) {sp.render(gc);}
+		for(Sprite sp : this.walllist) {sp.render(gc);}
 		for(Sprite sp : this.powerup) {sp.render(gc);}
 		this.exit.render(gc);
 		return true;
@@ -105,7 +113,33 @@ public class GameModel {
 	
 	
 	
-	
+	public ArrayList<Sprite> border() {
+		 ArrayList<Sprite> b = new ArrayList<Sprite>();
+		 
+		 for(double i=-0;i<1250;i+=50) {
+			 WallSprite sp = new WallSprite();
+		
+			 sp.setPosition((double)0, i);
+			 b.add(sp);
+			 WallSprite sp2 = new WallSprite();
+			
+			 sp2.setPosition((double)1150, i);
+			 b.add(sp2);
+		}
+		 for(double i=-0;i<1150;i+=50) {
+			 WallSprite sp = new WallSprite();
+			
+			 sp.setPosition((double)i, 750);
+			 b.add(sp);
+			 WallSprite sp2 = new WallSprite();
+			
+			 sp2.setPosition((double)i,0);
+			 b.add(sp2);
+		}
+		 
+		 
+		 return b;
+	}
 	
 	
 }

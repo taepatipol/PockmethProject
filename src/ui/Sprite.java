@@ -45,7 +45,9 @@ public class Sprite
     }
 
     public void setPosition(double x, double y)
-    {
+    {	
+    	
+    	if((x<0 || x>1200) || (y<0 || y>800)) {return;}
         positionX = x;
         positionY = y;
     }

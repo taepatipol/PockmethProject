@@ -2,10 +2,10 @@ package model;
 
 import ui.Sprite;
 
-public class ExitSprite extends Sprite{
-	public ExitSprite() {
+public class WallSprite extends Sprite{
+	public WallSprite() {
 		super();
-		setPosition(1100,50);
 		setImage("file:res/Entity/fish01.jpg");
 	}
+	
 }
