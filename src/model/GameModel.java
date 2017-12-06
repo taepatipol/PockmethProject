@@ -94,6 +94,25 @@ public class GameModel {
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
 		}
+		if(i==4) {
+			System.out.println("Level4");
+			this.level = 4;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			this.enemylist.add(new CircleBigEnemySprite(4*50,1*50,2,1));
+			this.enemylist.add(new CircleBigEnemySprite(13*50,10*50,4,1));
+			this.enemylist.add(new BigEnemySprite(18*50,10*50));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(3, 1, 3, 1));
+			this.walllist.addAll(this.createWall(3, 13, 3, 13));
+			this.walllist.addAll(this.createWall(17, 1, 17, 1));
+			this.walllist.addAll(this.createWall(17, 13, 17, 13));
+			this.walllist.addAll(this.createWall(9, 6, 11, 8));
+			this.powerup = new ArrayList<Sprite>();
+			this.exit = new ExitSprite();
+		}
 		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}

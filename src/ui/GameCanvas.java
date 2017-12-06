@@ -17,6 +17,7 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import logic.GameLogic;
 import model.BigEnemySprite;
+import model.CircleBigEnemySprite;
 import model.Enemy;
 import model.GameModel;
 import model.NormalEnemySprite;
@@ -96,6 +97,7 @@ public class GameCanvas extends Canvas {
 		//Collision Checking
 		
 		//Wall Collision
+		//TODO when add new enemy
 		for (Sprite sp : this.model.getWall()) {
 			//Check PLayer
 			if(this.model.getPlayer().intersects(sp)) {
@@ -112,6 +114,9 @@ public class GameCanvas extends Canvas {
 					}
 					if(sp1 instanceof PatrollingBigEnemySprite) {
 						((PatrollingBigEnemySprite) sp1).changeDirection();
+					}
+					if(sp1 instanceof CircleBigEnemySprite) {
+						((CircleBigEnemySprite) sp1).changeDirection();
 					}
 				}
 			}
@@ -137,7 +142,7 @@ public class GameCanvas extends Canvas {
       
 	}
 	
-	
+	//TODO when add new enemy
 	private void enemyMove() {
 		ArrayList<Sprite> enemylist = this.model.getEnemy();
 		for(Sprite sp :enemylist) {
@@ -158,6 +163,10 @@ public class GameCanvas extends Canvas {
 			
 			else if (sp instanceof PatrollingBigEnemySprite) {
 				((PatrollingBigEnemySprite) sp).move();
+			}
+			
+			else if (sp instanceof CircleBigEnemySprite) {
+				((CircleBigEnemySprite) sp).move();
 			}
 		}
 		
