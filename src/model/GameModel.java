@@ -113,6 +113,29 @@ public class GameModel {
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
 		}
+		if(i==5) {
+			System.out.println("Level5");
+			this.level = 5;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			PatrollingBigEnemySprite sp = new PatrollingBigEnemySprite(8*50,7*50,4);
+			sp.setSpeed(2);
+			this.enemylist.add(sp);
+			PatrollingEnemySprite sp1 = new PatrollingEnemySprite(10*50,7*50,3);
+			PatrollingEnemySprite sp2 = new PatrollingEnemySprite(11*50,7*50,3);
+			PatrollingEnemySprite sp3 = new PatrollingEnemySprite(12*50,7*50,3);
+			sp1.setSpeed(2); sp2.setSpeed(2); sp3.setSpeed(2);
+			this.enemylist.add(sp1); this.enemylist.add(sp2); this.enemylist.add(sp3);
+			this.enemylist.add(new BigEnemySprite(17*50,7*50));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(8, 1, 15, 6));
+			this.walllist.addAll(this.createWall(8, 11, 15, 13));
+			this.walllist.addAll(this.createWall(16, 9, 16, 9));
+			this.powerup = new ArrayList<Sprite>();
+			this.exit = new ExitSprite();
+		}
 		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}
