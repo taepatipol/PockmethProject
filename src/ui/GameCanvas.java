@@ -17,10 +17,12 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import logic.GameLogic;
 import model.BigEnemySprite;
+import model.CircleBigEnemySprite;
 import model.Enemy;
 import model.FasterPowerup;
 import model.GameModel;
 import model.NormalEnemySprite;
+import model.PatrollingBigEnemySprite;
 import model.PatrollingEnemySprite;
 import model.Powerup;
 import window.SceneManager;
@@ -98,6 +100,7 @@ public class GameCanvas extends Canvas {
 		
 		
 		//Wall Collision
+		//TODO when add new enemy
 		for (Sprite sp : this.model.getWall()) {
 			//Check PLayer
 			if(this.model.getPlayer().intersects(sp)) {
@@ -111,6 +114,12 @@ public class GameCanvas extends Canvas {
 					sp1.rebound();
 					if(sp1 instanceof PatrollingEnemySprite) {
 						((PatrollingEnemySprite) sp1).changeDirection();
+					}
+					if(sp1 instanceof PatrollingBigEnemySprite) {
+						((PatrollingBigEnemySprite) sp1).changeDirection();
+					}
+					if(sp1 instanceof CircleBigEnemySprite) {
+						((CircleBigEnemySprite) sp1).changeDirection();
 					}
 				}
 			}
@@ -148,7 +157,7 @@ public class GameCanvas extends Canvas {
       
 	}
 	
-	
+	//TODO when add new enemy
 	private void enemyMove() {
 		ArrayList<Sprite> enemylist = this.model.getEnemy();
 		for(Sprite sp :enemylist) {
@@ -167,7 +176,13 @@ public class GameCanvas extends Canvas {
 				((BigEnemySprite)sp).move();
 			}
 			
+			else if (sp instanceof PatrollingBigEnemySprite) {
+				((PatrollingBigEnemySprite) sp).move();
+			}
 			
+			else if (sp instanceof CircleBigEnemySprite) {
+				((CircleBigEnemySprite) sp).move();
+			}
 		}
 		
 				
@@ -199,6 +214,10 @@ public class GameCanvas extends Canvas {
 		        if (c=='a') {
 		        	model.getPlayer().addVelocity(-1*sp,0);
 		        	
+		        }
+		        //cheat to next level
+		        if (c=='c') {
+		        	this.model = new GameModel(this.model.getLevel()+1);
 		        }
 		          
 		      

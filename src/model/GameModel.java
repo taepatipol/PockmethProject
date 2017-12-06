@@ -75,11 +75,79 @@ public class GameModel {
 			this.player = new PlayerSprite();
 			this.map = new Image("file:res/bg.jpg");
 			this.enemylist = new ArrayList<Sprite>();
-			this.enemylist.add(new NormalEnemySprite(1000,600));
+			//this.enemylist.add(new NormalEnemySprite(1000,600));
 			this.enemylist.add(new BigEnemySprite(800,400));
 			this.walllist = border();
+<<<<<<< HEAD
 			this.walllist.addAll(this.createWall(5, 5, 10, 10));
 			this.powerup = new ArrayList<Powerup>();
+||||||| merged common ancestors
+			this.walllist.addAll(this.createWall(5, 5, 10, 10));
+			this.powerup = new ArrayList<Sprite>();
+=======
+			this.walllist.addAll(this.createWall(12, 1, 12, 12));
+			this.powerup = new ArrayList<Sprite>();
+			this.exit = new ExitSprite();
+		}
+		if(i==3) {
+			System.out.println("Level3");
+			this.level = 3;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			this.enemylist.add(new PatrollingBigEnemySprite(10*50,7*50,1));
+			this.enemylist.add(new PatrollingEnemySprite(9*50,1*50,4));
+			this.enemylist.add(new PatrollingEnemySprite(9*50,2*50,4));
+			this.enemylist.add(new PatrollingEnemySprite(16*50,12*50,4));
+			this.enemylist.add(new PatrollingEnemySprite(16*50,13*50,4));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(7, 3, 7, 13));
+			this.walllist.addAll(this.createWall(16, 1, 16, 11));
+			this.powerup = new ArrayList<Sprite>();
+			this.exit = new ExitSprite();
+		}
+		if(i==4) {
+			System.out.println("Level4");
+			this.level = 4;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			this.enemylist.add(new CircleBigEnemySprite(4*50,1*50,2,1));
+			this.enemylist.add(new CircleBigEnemySprite(13*50,10*50,4,1));
+			this.enemylist.add(new BigEnemySprite(18*50,10*50));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(3, 1, 3, 1));
+			this.walllist.addAll(this.createWall(3, 13, 3, 13));
+			this.walllist.addAll(this.createWall(17, 1, 17, 1));
+			this.walllist.addAll(this.createWall(17, 13, 17, 13));
+			this.walllist.addAll(this.createWall(9, 6, 11, 8));
+			this.powerup = new ArrayList<Sprite>();
+			this.exit = new ExitSprite();
+		}
+		if(i==5) {
+			System.out.println("Level5");
+			this.level = 5;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			PatrollingBigEnemySprite sp = new PatrollingBigEnemySprite(8*50,7*50,4);
+			sp.setSpeed(2);
+			this.enemylist.add(sp);
+			PatrollingEnemySprite sp1 = new PatrollingEnemySprite(10*50,7*50,3);
+			PatrollingEnemySprite sp2 = new PatrollingEnemySprite(11*50,7*50,3);
+			PatrollingEnemySprite sp3 = new PatrollingEnemySprite(12*50,7*50,3);
+			sp1.setSpeed(2); sp2.setSpeed(2); sp3.setSpeed(2);
+			this.enemylist.add(sp1); this.enemylist.add(sp2); this.enemylist.add(sp3);
+			this.enemylist.add(new BigEnemySprite(17*50,7*50));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(8, 1, 15, 6));
+			this.walllist.addAll(this.createWall(8, 11, 15, 13));
+			this.walllist.addAll(this.createWall(16, 9, 16, 9));
+			this.powerup = new ArrayList<Sprite>();
+>>>>>>> Tae
 			this.exit = new ExitSprite();
 		}
 		/*if(i == 3) {}
