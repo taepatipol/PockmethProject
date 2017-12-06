@@ -18,9 +18,11 @@ import javafx.util.Duration;
 import logic.GameLogic;
 import model.BigEnemySprite;
 import model.Enemy;
+import model.FasterPowerup;
 import model.GameModel;
 import model.NormalEnemySprite;
 import model.PatrollingEnemySprite;
+import model.Powerup;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -80,7 +82,7 @@ public class GameCanvas extends Canvas {
 		//Cheatcode
 	//	if(checkCollide(model.getPlayer(),model.getExit())) {model.getPlayer().rebound();} //rebound from exit
 		
-		enemyMove();
+	//	enemyMove();
 		
 		
 		for (Sprite sp : this.model.getEnemy()) {
@@ -93,6 +95,7 @@ public class GameCanvas extends Canvas {
 		
 		
 		//Collision Checking
+		
 		
 		//Wall Collision
 		for (Sprite sp : this.model.getWall()) {
@@ -120,15 +123,27 @@ public class GameCanvas extends Canvas {
 			}
 			
 		}
+		
+		//Powerup Collision
+		for (Powerup powerup : this.model.getPowerup()) {
+			if(this.model.getPlayer().intersects(powerup)) {
+				stopAnimation();
+				if(powerup instanceof FasterPowerup) {
+					//Error when remove
+					this.model.getPowerup().remove(powerup);
+					this.model.getPlayer().setSpeed(7);
+				}
+				startAnimation();
+				System.out.println("Powerup Collide");   
+			}
+			
+		}
+		
+		
 		//Exit collide
         if(this.model.getPlayer().intersects(this.model.getExit())) {
-        	System.out.println("Exit reached");
-        	//How to increase Level?
-        	
-        	
+        	System.out.println("Exit reached");     	
         	this.model = new GameModel(this.model.getLevel()+1);
-        	
-        	
         	}
       
 	}

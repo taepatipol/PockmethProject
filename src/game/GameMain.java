@@ -12,12 +12,18 @@ public class GameMain {
 	private static GameLogic logic;
 
 	public static void newGame() {
+		
+		
+		
+		
+		
 		model = new GameModel(1);
 		canvas = new GameCanvas(model);
 		logic = new GameLogic(model);
 		SceneManager.gotoSceneOf(canvas);
 		logic.startGame();
 		canvas.startAnimation();
+		SceneManager.playMusic();
 	}
 	
 	

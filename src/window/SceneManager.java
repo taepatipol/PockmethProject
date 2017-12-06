@@ -1,8 +1,13 @@
 package window;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
+
 import javafx.stage.Stage;
 import menu.MainMenu;
 
@@ -32,5 +37,12 @@ public final class SceneManager {
 		primaryStage.setScene(new Scene(new Pane(nextscene)));
 		nextscene.requestFocus();
 	
+	}
+	
+	public static void playMusic() {
+		String musicFile = "file:res/TestMusic.mp3";     // Error
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.play();
 	}
 }

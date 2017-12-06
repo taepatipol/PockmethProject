@@ -15,7 +15,7 @@ public class GameModel {
 	private ArrayList<Sprite> enemylist;
 	private ArrayList<Sprite> walllist;
 	private Image map;
-	private ArrayList<Sprite> powerup;
+	private ArrayList<Powerup> powerup;
 	private ExitSprite exit;
 	
 	public PlayerSprite getPlayer() {
@@ -33,6 +33,12 @@ public class GameModel {
 	
 	public ExitSprite getExit() {return this.exit;}
 	
+	public ArrayList<Powerup> getPowerup() {
+		return this.powerup;
+	}
+	
+	
+	
 	public int getLevel() {return this.level;}
 	
 	//function to get new model
@@ -47,16 +53,16 @@ public class GameModel {
 		
 			
 			for (int i1 = 1;i1<22;i1++) {
-				
 					this.enemylist.add( new PatrollingEnemySprite(50+(i1*50),300,1));
-					
-				
 			}
 		
 		
 		
 			this.walllist = border();
-			this.powerup = new ArrayList<Sprite>();
+			
+			this.powerup = new ArrayList<Powerup>();
+			this.powerup.add(new FasterPowerup(350,340));
+			
 			this.exit = new ExitSprite();
 			
 			
@@ -73,7 +79,7 @@ public class GameModel {
 			this.enemylist.add(new BigEnemySprite(800,400));
 			this.walllist = border();
 			this.walllist.addAll(this.createWall(5, 5, 10, 10));
-			this.powerup = new ArrayList<Sprite>();
+			this.powerup = new ArrayList<Powerup>();
 			this.exit = new ExitSprite();
 		}
 		/*if(i == 3) {}
