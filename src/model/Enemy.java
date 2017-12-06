@@ -61,19 +61,19 @@ public abstract class Enemy implements Entity{
 			if (canMove(di)) {
 				switch(di) {
 				case 0:
-					setYcoor((this.getYcoor()+2)*this.speed);
+					setYcoor((this.getYcoor()+(float)0.1)*speed);
 					isMove = true;
 					break;
 				case 1:
-					setXcoor((this.getXcoor()+2)*this.speed);
+					setXcoor((this.getXcoor()+(float)0.1)*this.speed);
 					isMove = true;
 					break;
 				case 2:
-					setYcoor((this.getYcoor()-2)*this.speed);
+					setYcoor((this.getYcoor()-(float)0.1)*this.speed);
 					isMove = true;
 					break;
 				case 3:	
-					setXcoor((this.getXcoor()-2)*this.speed);
+					setXcoor((this.getXcoor()-(float)0.1)*this.speed);
 					isMove = true;
 					break;
 				}		

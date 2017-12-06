@@ -44,10 +44,17 @@ public class GameModel {
 			this.player = new PlayerSprite();
 			this.map = new Image("file:res/bg.jpg");
 			this.enemylist = new ArrayList<Sprite>();
-			for(int ii = 0; ii < 5; ii++) {
-				this.enemylist.add(new NormalEnemySprite());
+		
+			
+			for (int i1 = 1;i1<22;i1++) {
+				
+					this.enemylist.add( new PatrollingEnemySprite(50+(i1*50),300,1));
+					
+				
 			}
-			this.enemylist.add(new BigEnemySprite());
+		
+		
+		
 			this.walllist = border();
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
@@ -66,20 +73,20 @@ public class GameModel {
 			this.enemylist.add(new BigEnemySprite(800,400));
 			this.walllist = border();
 			this.walllist.addAll(this.createWall(5, 5, 10, 10));
-			
 			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
 		}
-		if(i == 3) {}
+		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}
 		if(i == 6) {}
 		if(i == 7) {}
 		if(i == 8) {}
 		if(i == 9) {}
-		if(i == 10) {}
+		if(i == 10) {}*/
 		
 		
+			
 		
 		
 		
@@ -92,6 +99,7 @@ public class GameModel {
 	}
 	
 	public boolean renderAll(GraphicsContext gc) {
+		gc.clearRect(0, 0, 1200, 750);
 		gc.drawImage(this.map, 0, 0);
 		this.player.render(gc);
 		for(Sprite sp : this.enemylist) {sp.render(gc);}

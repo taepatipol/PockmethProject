@@ -16,8 +16,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import logic.GameLogic;
+import model.BigEnemySprite;
 import model.Enemy;
 import model.GameModel;
+import model.NormalEnemySprite;
+import model.PatrollingEnemySprite;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -26,14 +29,14 @@ public class GameCanvas extends Canvas {
 	private static final long LOOP_TIME = 1000000000 / FPS;
 	
 	private GameModel model;
-	private GameLogic logic;
+
 	private Thread gameAnimation;
 	private boolean isAnimationRunning;
 
 	public GameCanvas(GameModel model) {
 		super(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 		this.model = model;
-		this.logic = new GameLogic(model);
+
 		this.isAnimationRunning = false;
 		this.addKeyEventHandler();
 	}
@@ -74,7 +77,7 @@ public class GameCanvas extends Canvas {
 		
 		model.getPlayer().update(LOOP_TIME/10000000); //update player animation
 		
-		
+		//Cheatcode
 	//	if(checkCollide(model.getPlayer(),model.getExit())) {model.getPlayer().rebound();} //rebound from exit
 		
 		enemyMove();
@@ -103,6 +106,9 @@ public class GameCanvas extends Canvas {
 				if(checkCollide(sp1,sp) ) {
 					System.out.println("Enemy Collide Wall");
 					sp1.rebound();
+					if(sp1 instanceof PatrollingEnemySprite) {
+						((PatrollingEnemySprite) sp1).changeDirection();
+					}
 				}
 			}
 		}
@@ -110,7 +116,7 @@ public class GameCanvas extends Canvas {
 		//Enemy Collision
 		for (Sprite sp : this.model.getEnemy()) {
 			if(this.model.getPlayer().intersects(sp)) {
-				System.out.println("Collide Enemy");
+				this.model = new GameModel(this.model.getLevel());
 			}
 			
 		}
@@ -119,9 +125,9 @@ public class GameCanvas extends Canvas {
         	System.out.println("Exit reached");
         	//How to increase Level?
         	
-        	stopAnimation();
+        	
         	this.model = new GameModel(this.model.getLevel()+1);
-        	startAnimation();
+        	
         	
         	}
       
@@ -130,14 +136,23 @@ public class GameCanvas extends Canvas {
 	
 	private void enemyMove() {
 		ArrayList<Sprite> enemylist = this.model.getEnemy();
-		for(Sprite sp:enemylist) {
-			Random rn = new Random();
-			int di = rn.nextInt(4);
-			int speed = sp.getSpeed();
-			if(di == 0) {sp.addVelocity(0,-1*speed);}
-			if(di == 1) {sp.addVelocity(1*speed,0);}
-			if(di == 2) {sp.addVelocity(0,1*speed);}
-			if(di == 3) {sp.addVelocity(-1*speed,0);}
+		for(Sprite sp :enemylist) {
+			if(sp instanceof NormalEnemySprite) {
+				
+				((NormalEnemySprite)sp).move();
+			}
+			
+			else if(sp instanceof PatrollingEnemySprite) {
+				
+				((PatrollingEnemySprite) sp).move();
+				
+			} 
+			
+			else if (sp instanceof BigEnemySprite) {
+				((BigEnemySprite)sp).move();
+			}
+			
+			
 		}
 		
 				
