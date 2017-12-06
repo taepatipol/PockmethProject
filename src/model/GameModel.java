@@ -52,8 +52,8 @@ public class GameModel {
 			this.enemylist = new ArrayList<Sprite>();
 		
 			
-			for (int i1 = 1;i1<22;i1++) {
-					this.enemylist.add( new PatrollingEnemySprite(50+(i1*50),300,1));
+			for (int i1 = 1;i1<21;i1++) {
+					this.enemylist.add( new PatrollingEnemySprite(100+(i1*50),300,1));
 			}
 		
 		
@@ -75,18 +75,12 @@ public class GameModel {
 			this.player = new PlayerSprite();
 			this.map = new Image("file:res/bg.jpg");
 			this.enemylist = new ArrayList<Sprite>();
-			//this.enemylist.add(new NormalEnemySprite(1000,600));
 			this.enemylist.add(new BigEnemySprite(800,400));
 			this.walllist = border();
-<<<<<<< HEAD
-			this.walllist.addAll(this.createWall(5, 5, 10, 10));
+			this.walllist.addAll(this.createWall(4, 4, 9, 9));
+			this.walllist.addAll(this.createWall(12, 1, 12, 5));
+			this.walllist.addAll(this.createWall(12, 8, 12, 13));
 			this.powerup = new ArrayList<Powerup>();
-||||||| merged common ancestors
-			this.walllist.addAll(this.createWall(5, 5, 10, 10));
-			this.powerup = new ArrayList<Sprite>();
-=======
-			this.walllist.addAll(this.createWall(12, 1, 12, 12));
-			this.powerup = new ArrayList<Sprite>();
 			this.exit = new ExitSprite();
 		}
 		if(i==3) {
@@ -104,7 +98,7 @@ public class GameModel {
 			this.walllist = border();
 			this.walllist.addAll(this.createWall(7, 3, 7, 13));
 			this.walllist.addAll(this.createWall(16, 1, 16, 11));
-			this.powerup = new ArrayList<Sprite>();
+			this.powerup = new ArrayList<Powerup>();
 			this.exit = new ExitSprite();
 		}
 		if(i==4) {
@@ -123,7 +117,7 @@ public class GameModel {
 			this.walllist.addAll(this.createWall(17, 1, 17, 1));
 			this.walllist.addAll(this.createWall(17, 13, 17, 13));
 			this.walllist.addAll(this.createWall(9, 6, 11, 8));
-			this.powerup = new ArrayList<Sprite>();
+			this.powerup = new ArrayList<Powerup>();
 			this.exit = new ExitSprite();
 		}
 		if(i==5) {
@@ -146,8 +140,7 @@ public class GameModel {
 			this.walllist.addAll(this.createWall(8, 1, 15, 6));
 			this.walllist.addAll(this.createWall(8, 11, 15, 13));
 			this.walllist.addAll(this.createWall(16, 9, 16, 9));
-			this.powerup = new ArrayList<Sprite>();
->>>>>>> Tae
+			this.powerup = new ArrayList<Powerup>();
 			this.exit = new ExitSprite();
 		}
 		/*if(i == 3) {}

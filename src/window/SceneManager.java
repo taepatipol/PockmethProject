@@ -39,10 +39,13 @@ public final class SceneManager {
 	
 	}
 	
+	
+	/*
 	public static void playMusic() {
 		String musicFile = "file:res/TestMusic.mp3";     // Error
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(sound);
 		mediaPlayer.play();
 	}
+	*/
 }

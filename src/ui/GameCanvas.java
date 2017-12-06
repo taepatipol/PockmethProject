@@ -84,7 +84,7 @@ public class GameCanvas extends Canvas {
 		//Cheatcode
 	//	if(checkCollide(model.getPlayer(),model.getExit())) {model.getPlayer().rebound();} //rebound from exit
 		
-	//	enemyMove();
+		enemyMove();
 		
 		
 		for (Sprite sp : this.model.getEnemy()) {
