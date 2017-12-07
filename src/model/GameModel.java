@@ -63,9 +63,9 @@ public class GameModel {
 			this.walllist = border();
 			
 			this.powerup = new ArrayList<Powerup>();
-		//	Need smaller picture
 			this.powerup.add(new FasterPowerup(350,340));
-			this.powerup.add(new InvinciblePowerup(500,340));
+			this.powerup.add(new InvinciblePowerup(450,340));
+			this.powerup.add(new SlowPowerup(550,340));
 			
 			this.exit = new ExitSprite();
 			
@@ -86,6 +86,7 @@ public class GameModel {
 			this.walllist.addAll(this.createWall(12, 8, 12, 13));
 			this.powerup = new ArrayList<Powerup>();
 			this.exit = new ExitSprite();
+			
 		}
 		if(i==3) {
 			System.out.println("Level3");
@@ -104,6 +105,7 @@ public class GameModel {
 			this.walllist.addAll(this.createWall(16, 1, 16, 11));
 			this.powerup = new ArrayList<Powerup>();
 			this.exit = new ExitSprite();
+			this.powerup.add(new SlowPowerup(200,340));
 		}
 		if(i==4) {
 			System.out.println("Level4");

@@ -27,6 +27,7 @@ import model.NormalEnemySprite;
 import model.PatrollingBigEnemySprite;
 import model.PatrollingEnemySprite;
 import model.Powerup;
+import model.SlowPowerup;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -154,11 +155,21 @@ public class GameCanvas extends Canvas {
 				}
 				
 				else if(powerup instanceof InvinciblePowerup) {
-					//No error now
-				/*	iterator.remove();
+					
+					iterator.remove();
 					this.model.getPlayer().setImage("file:res/invinciblefish.png");
-					this.model.getPlayer().setInvincible(true);*/
+					this.model.getPlayer().setInvincible(true);
 				}
+				 
+				else if(powerup instanceof SlowPowerup) {
+					
+					iterator.remove();
+					for(Sprite enemy : this.model.getEnemy()) {
+						enemy.setSpeed(1);
+					}
+				}
+				 
+				
 				
 				System.out.println("Powerup Collide");   
 			}
