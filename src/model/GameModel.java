@@ -66,6 +66,7 @@ public class GameModel {
 			this.powerup.add(new FasterPowerup(350,340));
 			this.powerup.add(new InvinciblePowerup(450,340));
 			this.powerup.add(new SlowPowerup(550,340));
+			this.powerup.add(new StopPowerup(1*50,12*50));
 			
 			this.exit = new ExitSprite();
 			

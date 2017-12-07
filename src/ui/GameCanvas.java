@@ -28,6 +28,7 @@ import model.PatrollingBigEnemySprite;
 import model.PatrollingEnemySprite;
 import model.Powerup;
 import model.SlowPowerup;
+import model.StopPowerup;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -168,6 +169,14 @@ public class GameCanvas extends Canvas {
 					iterator.remove();
 					for(Sprite enemy : this.model.getEnemy()) {
 						enemy.setSpeed(1);
+					}
+				}
+				
+				else if(powerup instanceof StopPowerup) {
+					
+					iterator.remove();
+					for(Sprite enemy : this.model.getEnemy()) {
+						enemy.setSpeed(0);
 					}
 				}
 				 
