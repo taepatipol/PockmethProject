@@ -150,6 +150,7 @@ public class GameCanvas extends Canvas {
 				if(powerup instanceof FasterPowerup) {
 					//No error now
 					iterator.remove();
+					this.model.getPlayer().normalisePlayer();
 					this.model.getPlayer().setImage("file:res/fastfish.png");
 					this.model.getPlayer().setSpeed(7);
 				}
@@ -157,6 +158,7 @@ public class GameCanvas extends Canvas {
 				else if(powerup instanceof InvinciblePowerup) {
 					
 					iterator.remove();
+					this.model.getPlayer().normalisePlayer();
 					this.model.getPlayer().setImage("file:res/invinciblefish.png");
 					this.model.getPlayer().setInvincible(true);
 				}

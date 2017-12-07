@@ -149,6 +149,28 @@ public class GameModel {
 			this.powerup = new ArrayList<Powerup>();
 			this.exit = new ExitSprite();
 		}
+		if(i==6) {
+			System.out.println("Level6");
+			this.level = 6;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			for(int j = 5;j <= 11;j++) {
+				this.enemylist.add(new NormalEnemySprite(j*2*50,2*50));
+			}
+			this.enemylist.add(new PatrollingEnemySprite(22*50,1*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(21*50,2*50,1));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(3, 3, 22, 3));
+			this.walllist.addAll(this.createWall(1, 12, 20, 12));
+			this.powerup = new ArrayList<Powerup>();
+			this.powerup.add(new InvinciblePowerup(22*50,4*50));
+			for(int j = 4; j <= 11; j++) {
+				this.powerup.add(new FasterPowerup(18*50,j*50));
+			}
+			this.exit = new ExitSprite();
+		}
 		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}
