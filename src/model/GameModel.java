@@ -171,6 +171,53 @@ public class GameModel {
 			}
 			this.exit = new ExitSprite();
 		}
+		if(i==7) {
+			System.out.println("Level7");
+			this.level = 7;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			PatrollingBigEnemySprite sp = new PatrollingBigEnemySprite(15*50,9*50,4);
+			sp.setSpeed(8);
+			this.enemylist.add(sp);
+			this.enemylist.add(new PatrollingEnemySprite(1*50,1*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(2*50,1*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(3*50,1*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(4*50,1*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(1*50,4*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(2*50,4*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(3*50,4*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(4*50,4*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(20*50,3*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(20*50,4*50,1));
+			this.enemylist.add(new PatrollingEnemySprite(5*50,1*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(5*50,2*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(6*50,1*50,3));
+			this.enemylist.add(new PatrollingEnemySprite(6*50,2*50,3));
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(2, 13, 22, 13));
+			this.walllist.addAll(this.createWall(20, 1, 20, 2));
+			this.walllist.addAll(this.createWall(1, 9, 1, 9));
+			this.walllist.addAll(this.createWall(20, 5, 22, 5));
+			this.walllist.addAll(this.createWall(5, 7, 6, 7));
+			for(int j = 1; j <= 20;j++) {
+				if(j == 9 || j == 14) {
+					this.walllist.addAll(this.createWall(j, 6, j, 8));
+				}
+				else if(j>9 && j<14) {
+					this.walllist.addAll(this.createWall(j, 6, j, 6));
+				}
+				else {
+					this.walllist.addAll(this.createWall(j, 8, j, 8));
+				}
+			}
+			this.powerup = new ArrayList<Powerup>();
+			this.powerup.add(new InvinciblePowerup(1*50,5*50));
+			this.powerup.add(new SlowPowerup(15*50,7*50));
+			this.powerup.add(new FasterPowerup(13*50,7*50));
+			this.exit = new ExitSprite();
+		}
 		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}
