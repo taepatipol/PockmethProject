@@ -218,6 +218,36 @@ public class GameModel {
 			this.powerup.add(new FasterPowerup(13*50,7*50));
 			this.exit = new ExitSprite();
 		}
+		if(i==8) {
+			System.out.println("Level8");
+			this.level = 8;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+			this.enemylist.add(new CircleBigEnemySprite(8*50,4*50,2,1));
+			this.enemylist.add(new CircleBigEnemySprite(12*50,8*50,4,1));
+			this.enemylist.add(new NormalEnemySprite(2*50,2*50));
+			this.walllist = border();
+			for(int j = 7; j<=16; j++) {
+				if(j==7 || j==16) {
+					this.walllist.addAll(this.createWall(j, 3, j, 4));
+					this.walllist.addAll(this.createWall(j, 11, j, 12));
+				}
+				else if(j==11) {
+					this.walllist.addAll(this.createWall(j, 1, j, 3));
+					this.walllist.addAll(this.createWall(j, 12, j, 13));
+				}
+				else {
+					this.walllist.addAll(this.createWall(j, 3, j, 3));
+					this.walllist.addAll(this.createWall(j, 12, j, 12));
+				}
+			}
+			this.powerup = new ArrayList<Powerup>();
+			this.powerup.add(new SlowPowerup(1*50,2*50));
+			this.powerup.add(new FasterPowerup(1*50,1*50));
+			this.exit = new ExitSprite();
+		}
 		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}
