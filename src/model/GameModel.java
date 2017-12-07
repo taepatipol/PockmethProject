@@ -249,6 +249,35 @@ public class GameModel {
 			this.powerup.add(new FasterPowerup(1*50,1*50));
 			this.exit = new ExitSprite();
 		}
+		if(i==9) {
+			System.out.println("Level9");
+			this.level = 9;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+		
+			
+			for (int i1 = 1;i1<23;i1++) {
+				NormalEnemySprite n = new NormalEnemySprite(i1*50,2*50);
+				
+				n.setSpeed(0);
+				
+				this.enemylist.add(n);
+				
+			}
+		
+		
+		
+			this.walllist = border();
+			
+			this.powerup = new ArrayList<Powerup>();
+			this.powerup.add(new StartPowerup(22*50,13*50));
+			this.powerup.add(new StopPowerup(22*50,12*50));
+			this.powerup.add(new InvinciblePowerup(1*50,2*50));
+			
+			this.exit = new ExitSprite();
+		}
 		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}
