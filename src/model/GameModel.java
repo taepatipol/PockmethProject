@@ -53,7 +53,9 @@ public class GameModel {
 		
 			
 			for (int i1 = 1;i1<21;i1++) {
+				if(i1%2==1) {
 					this.enemylist.add( new PatrollingEnemySprite(100+(i1*50),300,1));
+				}
 			}
 		
 		
@@ -61,7 +63,9 @@ public class GameModel {
 			this.walllist = border();
 			
 			this.powerup = new ArrayList<Powerup>();
+		//	Need smaller picture
 			this.powerup.add(new FasterPowerup(350,340));
+			this.powerup.add(new InvinciblePowerup(500,340));
 			
 			this.exit = new ExitSprite();
 			

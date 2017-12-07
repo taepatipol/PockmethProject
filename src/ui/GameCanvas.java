@@ -22,6 +22,7 @@ import model.CircleBigEnemySprite;
 import model.Enemy;
 import model.FasterPowerup;
 import model.GameModel;
+import model.InvinciblePowerup;
 import model.NormalEnemySprite;
 import model.PatrollingBigEnemySprite;
 import model.PatrollingEnemySprite;
@@ -127,10 +128,13 @@ public class GameCanvas extends Canvas {
 		}
 		
 		//Enemy Collision
+		boolean playerinvincible = this.model.getPlayer().isInvicible();
 		for (Sprite sp : this.model.getEnemy()) {
+			
 			if(this.model.getPlayer().intersects(sp)) {
-				
-				this.model = new GameModel(this.model.getLevel());
+				if(!playerinvincible) {
+					this.model = new GameModel(this.model.getLevel());
+				}
 			}
 			
 		}
@@ -145,10 +149,16 @@ public class GameCanvas extends Canvas {
 				if(powerup instanceof FasterPowerup) {
 					//No error now
 					iterator.remove();
+					this.model.getPlayer().setImage("file:res/fastfish.png");
 					this.model.getPlayer().setSpeed(7);
 				}
 				
-				
+				else if(powerup instanceof InvinciblePowerup) {
+					//No error now
+				/*	iterator.remove();
+					this.model.getPlayer().setImage("file:res/invinciblefish.png");
+					this.model.getPlayer().setInvincible(true);*/
+				}
 				
 				System.out.println("Powerup Collide");   
 			}
