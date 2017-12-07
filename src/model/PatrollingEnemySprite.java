@@ -9,7 +9,7 @@ public class PatrollingEnemySprite extends EnemySprite{
 		super();
 		this.direction = i;
 		setPosition(500, 500);
-		setImage("file:res/normalEnemy.png");
+		setImage("file:res/PatrollingEnemy.png");
 		setSpeed(5);
 		setPosition(x,y);
 		

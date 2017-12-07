@@ -6,13 +6,13 @@ public class BigEnemySprite extends EnemySprite{
 	public BigEnemySprite() {
 		super();
 		setPosition(500,500);
-		setImage("file:res/bigEnemy.png");
+		setImage("file:res/bigEnemyRandom.png");
 	}
 	
 	public BigEnemySprite(int x,int y) {
 		super();
 		setPosition(x,y);
-		setImage("file:res/bigEnemy.png");
+		setImage("file:res/bigEnemyRandom.png");
 	}
 	
 	public void move() {
