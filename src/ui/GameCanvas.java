@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 import game.GameMain;
@@ -128,24 +129,29 @@ public class GameCanvas extends Canvas {
 		//Enemy Collision
 		for (Sprite sp : this.model.getEnemy()) {
 			if(this.model.getPlayer().intersects(sp)) {
+				
 				this.model = new GameModel(this.model.getLevel());
 			}
 			
 		}
 		
 		//Powerup Collision
-		for (Powerup powerup : this.model.getPowerup()) {
-			if(this.model.getPlayer().intersects(powerup)) {
-				stopAnimation();
+	
+		
+		for (Iterator<Powerup> iterator = this.model.getPowerup().iterator(); iterator.hasNext();) {
+		    Powerup powerup = iterator.next();
+		    if(this.model.getPlayer().intersects(powerup)) {
+				
 				if(powerup instanceof FasterPowerup) {
-					//Error when remove
-					this.model.getPowerup().remove(powerup);
+					//No error now
+					iterator.remove();
 					this.model.getPlayer().setSpeed(7);
 				}
-				startAnimation();
+				
+				
+				
 				System.out.println("Powerup Collide");   
 			}
-			
 		}
 		
 		

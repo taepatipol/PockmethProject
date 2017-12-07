@@ -1,5 +1,9 @@
 package game;
 
+import java.io.File;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import logic.GameLogic;
 import model.GameModel;
 import ui.GameCanvas;
@@ -13,17 +17,13 @@ public class GameMain {
 
 	public static void newGame() {
 		
-		
-		
-		
-		
 		model = new GameModel(1);
 		canvas = new GameCanvas(model);
 		logic = new GameLogic(model);
 		SceneManager.gotoSceneOf(canvas);
 		logic.startGame();
 		canvas.startAnimation();
-		//SceneManager.playMusic();
+		SceneManager.playMusic();
 	}
 	
 	

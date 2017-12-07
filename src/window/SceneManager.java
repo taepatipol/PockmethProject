@@ -1,7 +1,10 @@
 package window;
 
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+
 import java.io.File;
 
 import javafx.scene.Scene;
@@ -40,12 +43,10 @@ public final class SceneManager {
 	}
 	
 	
-	/*
+	
 	public static void playMusic() {
-		String musicFile = "file:res/TestMusic.mp3";     // Error
-		Media sound = new Media(new File(musicFile).toURI().toString());
-		MediaPlayer mediaPlayer = new MediaPlayer(sound);
-		mediaPlayer.play();
+		AudioClip sound = new AudioClip("file:res/button2.mp3");
+		sound.play();
 	}
-	*/
+	
 }
