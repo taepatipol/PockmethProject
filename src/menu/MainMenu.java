@@ -32,13 +32,14 @@ public class MainMenu extends Canvas {
 		gc.fillText("Press Enter to SURVIVE!", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT * 3 / 4);
 		
 		this.addKeyEventHandler();
-		
+		//Play Main Menu Music
+		SceneManager.playMainMenuMusic();
 	}
 	
 	private void addKeyEventHandler() {
 		//Main Menu event handler; Enter and exit
 		this.setOnKeyPressed((KeyEvent event) -> {
-			if(event.getCode().equals(KeyCode.ENTER)) { GameMain.newGame();}
+			if(event.getCode().equals(KeyCode.ENTER)) { SceneManager.stopMusic();GameMain.newGame();}
 			if(event.getCode().equals(KeyCode.ESCAPE)) {Platform.exit() ; }
 		});
 	

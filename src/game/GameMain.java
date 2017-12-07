@@ -23,7 +23,7 @@ public class GameMain {
 		SceneManager.gotoSceneOf(canvas);
 		logic.startGame();
 		canvas.startAnimation();
-		SceneManager.playMusic();
+		SceneManager.playBackgroundMusic();
 	}
 	
 	

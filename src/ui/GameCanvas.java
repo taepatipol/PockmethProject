@@ -108,6 +108,7 @@ public class GameCanvas extends Canvas {
 			//Check PLayer
 			if(this.model.getPlayer().intersects(sp)) {
 				System.out.println("Collide Wall");
+				SceneManager.playWallCollisionSound();
 				model.getPlayer().rebound();
 			}
 			//Check Enemy and Wall
@@ -134,7 +135,7 @@ public class GameCanvas extends Canvas {
 			
 			if(this.model.getPlayer().intersects(sp)) {
 				if(!playerinvincible) {
-					this.model = new GameModel(this.model.getLevel());
+					this.model = new GameModel(this.model.getLevel());SceneManager.playEnemyCollisionSound();
 				}
 			}
 			
@@ -181,6 +182,7 @@ public class GameCanvas extends Canvas {
 		//Exit collide
         if(this.model.getPlayer().intersects(this.model.getExit())) {
         	System.out.println("Exit reached");     	
+        	SceneManager.playWinningSound();
         	this.model = new GameModel(this.model.getLevel()+1);
         	}
       

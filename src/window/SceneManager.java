@@ -21,6 +21,7 @@ public final class SceneManager {
 	private static Scene mainMenuScene = new Scene(new Pane(mainMenuCanvas));
 	public static final int SCENE_WIDTH = 1200;
 	public static final int SCENE_HEIGHT = 750;
+	private static AudioClip BackgroundMusic;
 
 	public static void initialize(Stage stage) {
 		primaryStage = stage;
@@ -44,9 +45,46 @@ public final class SceneManager {
 	
 	
 	
-	public static void playMusic() {
-		AudioClip sound = new AudioClip("file:res/button2.mp3");
-		sound.play();
+	public static void playMainMenuMusic() {
+		
+		//find main menu music
+		BackgroundMusic = new AudioClip("file:res/TestMusic.mp3");
+		BackgroundMusic.play();
+	}
+	
+	public static void playBackgroundMusic() {
+		//find BackGround Music
+		BackgroundMusic = new AudioClip("file:res/TestMusic.mp3");
+		BackgroundMusic.play();
+	}
+	
+	public static void playWinningSound() {
+		//Find sound when player reach Exit
+		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		effect.play();
+	}
+	
+	public static void playWallCollisionSound() {
+		//Find sound when player hit wall
+		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		effect.play();
+	}
+	
+	public static void playEnemyCollisionSound() {
+		//Find sound when player hit enemy
+		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		effect.play();
+	}
+	
+	public static void playPowerupCollisionSound() {
+		//Find sound when player get powerup
+		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		effect.play();
+	}
+	
+	public static void stopMusic() {
+		BackgroundMusic.stop();
+		
 	}
 	
 }
