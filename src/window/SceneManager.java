@@ -3,6 +3,7 @@ package window;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayerBuilder;
 import javafx.scene.media.MediaView;
 
 import java.io.File;
@@ -12,6 +13,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
 
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import menu.MainMenu;
 
 public final class SceneManager {
@@ -22,6 +24,8 @@ public final class SceneManager {
 	public static final int SCENE_WIDTH = 1200;
 	public static final int SCENE_HEIGHT = 750;
 	private static AudioClip BackgroundMusic;
+	private static boolean isBackgroundMusicOn;
+	private static Thread bgThread;
 
 	public static void initialize(Stage stage) {
 		primaryStage = stage;
@@ -48,37 +52,95 @@ public final class SceneManager {
 	public static void playMainMenuMusic() {
 		
 		//find main menu music
-		BackgroundMusic = new AudioClip("file:res/TestMusic.mp3");
-		BackgroundMusic.play();
+		isBackgroundMusicOn = true;
+		
+		bgThread =new Thread(new Runnable() {
+			@Override
+			public void run() {
+				while(isBackgroundMusicOn) {
+					BackgroundMusic = new AudioClip("file:res/bg.mp3");
+					BackgroundMusic.play();
+					System.out.println("Thread Running");
+					try {
+						Thread.sleep(14500);
+						
+					} catch (Exception e) {System.out.println("Shutdown");}
+					}
+				
+			}
+		
+		});
+		
+		
+		bgThread.start();
+		
+		
+		
+		
 	}
+	
 	
 	public static void playBackgroundMusic() {
 		//find BackGround Music
-		BackgroundMusic = new AudioClip("file:res/TestMusic.mp3");
-		BackgroundMusic.play();
+		//Might be buggy
+		
+		isBackgroundMusicOn = true;
+		
+		bgThread =new Thread(new Runnable() {
+			@Override
+			public void run() {
+				while(isBackgroundMusicOn) {
+					BackgroundMusic = new AudioClip("file:res/bg.mp3");
+					BackgroundMusic.play();
+					System.out.println("Thread Running");
+					try {
+						Thread.sleep(14500);
+						
+					} catch (Exception e) {System.out.println("Shutdown");}
+					}
+				
+			}
+		
+		});
+		
+		
+		bgThread.start();
+		
+		
+		
+		
+		
+	}
+	
+
+	public static void stopBackgroundMusic() {
+		bgThread.stop();
+		BackgroundMusic.stop();
+		isBackgroundMusicOn = false;
+		
 	}
 	
 	public static void playWinningSound() {
 		//Find sound when player reach Exit
-		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		AudioClip effect = new AudioClip("file:res/LevelUp.mp3");
 		effect.play();
 	}
 	
 	public static void playWallCollisionSound() {
-		//Find sound when player hit wall
-		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		//Find sound when player hit wall //done
+		AudioClip effect = new AudioClip("file:res/collideWall.mp3");
 		effect.play();
 	}
 	
 	public static void playEnemyCollisionSound() {
-		//Find sound when player hit enemy
-		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		//Find sound when player hit enemy 
+		AudioClip effect = new AudioClip("file:res/button2.mp3");
 		effect.play();
 	}
 	
 	public static void playPowerupCollisionSound() {
-		//Find sound when player get powerup
-		AudioClip effect = new AudioClip("file:res/TestMusic.mp3");
+		//Find sound when player get powerup //done
+		AudioClip effect = new AudioClip("file:res/getPowerup.mp3");
 		effect.play();
 	}
 	

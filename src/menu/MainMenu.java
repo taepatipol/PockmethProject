@@ -39,7 +39,7 @@ public class MainMenu extends Canvas {
 	private void addKeyEventHandler() {
 		//Main Menu event handler; Enter and exit
 		this.setOnKeyPressed((KeyEvent event) -> {
-			if(event.getCode().equals(KeyCode.ENTER)) { SceneManager.stopMusic();GameMain.newGame();}
+			if(event.getCode().equals(KeyCode.ENTER)) { SceneManager.stopBackgroundMusic();GameMain.newGame();}
 			if(event.getCode().equals(KeyCode.ESCAPE)) {Platform.exit() ; }
 		});
 	

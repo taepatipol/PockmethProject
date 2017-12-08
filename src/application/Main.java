@@ -28,8 +28,9 @@ public class Main extends Application {
 	
 	@Override
 	public void stop() throws Exception {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		GameMain.stopGameLogicAndAnimation();
+		SceneManager.stopBackgroundMusic();
 	}
 
 	public static void main(String[] args) {

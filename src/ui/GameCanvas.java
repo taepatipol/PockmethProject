@@ -149,7 +149,7 @@ public class GameCanvas extends Canvas {
 		for (Iterator<Powerup> iterator = this.model.getPowerup().iterator(); iterator.hasNext();) {
 		    Powerup powerup = iterator.next();
 		    if(this.model.getPlayer().intersects(powerup)) {
-				
+		    	SceneManager.playPowerupCollisionSound();
 				if(powerup instanceof FasterPowerup) {
 					//No error now
 					iterator.remove();
