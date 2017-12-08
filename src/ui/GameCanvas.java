@@ -28,6 +28,8 @@ import model.PatrollingBigEnemySprite;
 import model.PatrollingEnemySprite;
 import model.Powerup;
 import model.SlowPowerup;
+import model.StartPowerup;
+import model.StopPowerup;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -171,8 +173,23 @@ public class GameCanvas extends Canvas {
 						enemy.setSpeed(1);
 					}
 				}
-				 
 				
+				else if(powerup instanceof StopPowerup) {
+					
+					iterator.remove();
+					for(Sprite enemy : this.model.getEnemy()) {
+						enemy.setSpeed(0);
+						enemy.setVelocity(0, 0);
+					}
+				}
+				 
+				else if(powerup instanceof StartPowerup) {
+					
+					iterator.remove();
+					for(Sprite enemy : this.model.getEnemy()) {
+						enemy.setSpeed(1);
+					}
+				}
 				
 				System.out.println("Powerup Collide");   
 			}
