@@ -186,7 +186,7 @@ public class GameCanvas extends Canvas {
 					
 					iterator.remove();
 					for(Sprite enemy : this.model.getEnemy()) {
-						enemy.setSpeed(1);
+						enemy.setSpeed(5);
 					}
 				}
 				
