@@ -11,12 +11,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import window.SceneManager;
 
-public class MainMenu extends Canvas {
+public class EndGameMenu extends Canvas {
 
 	private static final Font TITLE_FONT = new Font("Monospace", 80);
 	private static final Font MENU_FONT = new Font("Monospace", 40);
 
-	public MainMenu() {
+	public EndGameMenu() {
 		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 
 		GraphicsContext gc = this.getGraphicsContext2D();
@@ -25,7 +25,7 @@ public class MainMenu extends Canvas {
 		gc.setTextAlign(TextAlignment.CENTER);
 		gc.setFill(Color.CRIMSON);
 		gc.setFont(TITLE_FONT);
-		gc.fillText("Zombie Simulator", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT / 4);
+		gc.fillText("Fishy Survive!", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT / 4);
 		gc.setFont(MENU_FONT);
 		gc.fillText("Press Enter to SURVIVE!", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT * 3 / 4);
 		

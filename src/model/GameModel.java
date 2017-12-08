@@ -278,6 +278,12 @@ public class GameModel {
 			
 			this.exit = new ExitSprite();
 		}
+		
+		else {
+			
+		}
+		
+		
 		/*if(i == 3) {}
 		if(i == 4) {}
 		if(i == 5) {}

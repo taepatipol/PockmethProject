@@ -2,24 +2,14 @@ package ui;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Random;
 
 import game.GameMain;
 import ui.CodeUtility;
-import javafx.animation.PathTransition;
-import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.util.Duration;
-import logic.GameLogic;
 import model.BigEnemySprite;
 import model.CircleBigEnemySprite;
-import model.Enemy;
 import model.FasterPowerup;
 import model.GameModel;
 import model.InvinciblePowerup;
@@ -41,11 +31,10 @@ public class GameCanvas extends Canvas {
 
 	private Thread gameAnimation;
 	private boolean isAnimationRunning;
-
+	
 	public GameCanvas(GameModel model) {
 		super(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 		this.model = model;
-
 		this.isAnimationRunning = false;
 		this.addKeyEventHandler();
 	}
@@ -83,11 +72,8 @@ public class GameCanvas extends Canvas {
 		this.model.renderAll(gc);
 		
 		
-		
 		model.getPlayer().update(LOOP_TIME/10000000); //update player animation
 		
-		//Cheatcode
-	//	if(checkCollide(model.getPlayer(),model.getExit())) {model.getPlayer().rebound();} //rebound from exit
 		
 		enemyMove();
 		
@@ -144,14 +130,11 @@ public class GameCanvas extends Canvas {
 		}
 		
 		//Powerup Collision
-	
-		
 		for (Iterator<Powerup> iterator = this.model.getPowerup().iterator(); iterator.hasNext();) {
 		    Powerup powerup = iterator.next();
 		    if(this.model.getPlayer().intersects(powerup)) {
 		    	SceneManager.playPowerupCollisionSound();
 				if(powerup instanceof FasterPowerup) {
-					//No error now
 					iterator.remove();
 					this.model.getPlayer().normalisePlayer();
 					this.model.getPlayer().setImage("file:res/fastfish.png");
@@ -200,8 +183,15 @@ public class GameCanvas extends Canvas {
         if(this.model.getPlayer().intersects(this.model.getExit())) {
         	System.out.println("Exit reached");     	
         	SceneManager.playWinningSound();
-        	this.model = new GameModel(this.model.getLevel()+1);
+        	
+        	if(this.model.getLevel()+1==10) {
+	        	//How Do I go to End Game Menu?
+        		GameMain.newGame();
+        	} else {
+        		this.model = new GameModel(this.model.getLevel()+1);
         	}
+        	
+        }
       
 	}
 	
@@ -239,13 +229,11 @@ public class GameCanvas extends Canvas {
 	private void addKeyEventHandler() {
 		
 		//Keyboard event handler
-		GraphicsContext gc = this.getGraphicsContext2D();
 		CodeUtility cu = new CodeUtility();
 		this.setOnKeyPressed((KeyEvent event) -> {
 			if(!cu.isPressed) {	
 				char c = event.getText().charAt(0);
 				cu.setPressed(true);
-			//	System.out.println("Key pressed");
 				int sp = model.getPlayer().getSpeed();
 		        if (c=='w') {
 		        	model.getPlayer().addVelocity(0,-1*sp);
@@ -265,9 +253,16 @@ public class GameCanvas extends Canvas {
 		        }
 		        //cheat to next level
 		        if (c=='c') {
-		        	this.model = new GameModel(this.model.getLevel()+1);
+		        	
+		        	if(this.model.getLevel()+1==10) {
+			        	//How Do I go to End Game Menu?
+		        		SceneManager.stopBackgroundMusic();
+		        		SceneManager.gotoEndGameMenu();
+		        	} else {
+		        		this.model = new GameModel(this.model.getLevel()+1);
+		        	}		        
 		        }
-		          
+		         
 		      
 		        model.getPlayer().update(LOOP_TIME/10000000); //might be wrong time
 		        
@@ -275,12 +270,8 @@ public class GameCanvas extends Canvas {
 		});
 		
 		this.setOnKeyReleased((KeyEvent event) -> {
-		//	System.out.println("Key Released");
 			cu.setPressed(false);
 		});
-		
-		
-
 		
 		
 	}
@@ -291,34 +282,4 @@ public class GameCanvas extends Canvas {
 	}
 	
 	
-
-	/*
-	 * 	//Background
-		GraphicsContext gc = this.getGraphicsContext2D();
-		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
-		
-		// Player
-		double playerXcoor = model.getPlayerXcoor();
-		double playerYcoor = model.getPlayerYcoor();
-		drawPlayer(playerXcoor,playerYcoor) ;
-		
-		//Enemy
-		for(Enemy e : model.getEnemies()) {
-			gc.setFill(Color.PURPLE);
-			if(e.getSpeed() == 2) {gc.setFill(Color.BLUE);}
-			gc.fillRect(e.getXcoor(), e.getYcoor(), 50, 50);
-		}
-		
-		//Exit
-		gc.setFill(Color.RED);
-		gc.fillOval(1150, 0, 50, 50);
-		
-		//Wall
-		for(Position p : model.getWall()) {
-			gc.setFill(Color.GREEN);
-			gc.fillRect(p.getX(), p.getY(), 50, 50);
-		}
-	 */
-
 }

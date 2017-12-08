@@ -1,19 +1,11 @@
 package window;
 
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaPlayerBuilder;
-import javafx.scene.media.MediaView;
-
-import java.io.File;
-
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
-
 import javafx.stage.Stage;
-import javafx.util.Duration;
+import menu.EndGameMenu;
 import menu.MainMenu;
 
 public final class SceneManager {
@@ -21,6 +13,8 @@ public final class SceneManager {
 	private static Stage primaryStage;
 	private static Canvas mainMenuCanvas = new MainMenu();
 	private static Scene mainMenuScene = new Scene(new Pane(mainMenuCanvas));
+	private static Canvas EndGameMenuCanvas = new EndGameMenu();
+	private static Scene EndGameMenuScene = new Scene(new Pane(EndGameMenuCanvas));
 	public static final int SCENE_WIDTH = 1200;
 	public static final int SCENE_HEIGHT = 750;
 	private static AudioClip BackgroundMusic;
@@ -47,7 +41,39 @@ public final class SceneManager {
 	
 	}
 	
+	public static void gotoEndGameMenu() {
+		primaryStage.setScene(EndGameMenuScene);
+		EndGameMenuCanvas.requestFocus();
+		playEndGameMusic();
+	}
 	
+	public static void playEndGameMusic() {
+		//find main menu music
+				isBackgroundMusicOn = true;
+				
+				bgThread =new Thread(new Runnable() {
+					@Override
+					public void run() {
+						while(isBackgroundMusicOn) {
+							BackgroundMusic = new AudioClip("file:res/bg.mp3");
+							BackgroundMusic.play();
+							System.out.println("Thread Running");
+							try {
+								Thread.sleep(14500);
+								
+							} catch (Exception e) {System.out.println("Shutdown");}
+							}
+						
+					}
+				
+				});
+				
+				
+				bgThread.start();
+				
+				
+				
+	}
 	
 	public static void playMainMenuMusic() {
 		

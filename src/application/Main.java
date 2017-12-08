@@ -2,9 +2,6 @@ package application;
 
 import game.GameMain;
 import javafx.application.Application;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import window.SceneManager;
 
