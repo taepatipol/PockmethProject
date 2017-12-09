@@ -1,21 +1,15 @@
 package menu;
 
-import game.GameMain;
+
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import window.SceneManager;
-
 public class EndGameMenu extends Canvas {
-
-	private static final Font TITLE_FONT = new Font("Monospace", 80);
-	private static final Font MENU_FONT = new Font("Monospace", 40);
 
 	public EndGameMenu() {
 		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);

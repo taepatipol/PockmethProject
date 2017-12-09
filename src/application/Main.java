@@ -14,9 +14,7 @@ public class Main extends Application {
 			SceneManager.gotoMainMenu();
 			primaryStage.setTitle("PockMeth Project");
 			primaryStage.centerOnScreen();
-			primaryStage.show();
-			
-			  
+			primaryStage.show();	  
 			
 		} catch (Exception e) {
 			e.printStackTrace();

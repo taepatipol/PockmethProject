@@ -11,7 +11,7 @@ public class CircleBigEnemySprite extends EnemySprite{
 		this.direction = i;
 		this.clockwise = c;
 		setPosition(500, 500);
-		setImage("file:res/bigEnemy.png");
+		setImage("file:res/sprite/bigEnemy.png");
 		setSpeed(5);
 		setPosition(x,y);
 		

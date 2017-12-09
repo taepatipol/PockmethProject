@@ -2,14 +2,13 @@ package ui;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import game.GameMain;
 import ui.CodeUtility;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import model.BigEnemySprite;
 import model.CircleBigEnemySprite;
+import model.EnemySprite;
 import model.FasterPowerup;
 import model.GameModel;
 import model.InvinciblePowerup;
@@ -20,6 +19,7 @@ import model.Powerup;
 import model.SlowPowerup;
 import model.StartPowerup;
 import model.StopPowerup;
+import model.WallSprite;
 import window.SceneManager;
 
 public class GameCanvas extends Canvas {
@@ -92,7 +92,7 @@ public class GameCanvas extends Canvas {
 		
 		//Wall Collision
 		//TODO when add new enemy
-		for (Sprite sp : this.model.getWall()) {
+		for (WallSprite sp : this.model.getWall()) {
 			//Check PLayer
 			if(this.model.getPlayer().intersects(sp)) {
 				System.out.println("Collide Wall");
@@ -100,7 +100,7 @@ public class GameCanvas extends Canvas {
 				model.getPlayer().rebound();
 			}
 			//Check Enemy and Wall
-			for (Sprite sp1 : this.model.getEnemy()) {
+			for (EnemySprite sp1 : this.model.getEnemy()) {
 				if(checkCollide(sp1,sp) ) {
 					System.out.println("Enemy Collide Wall");
 					sp1.rebound();
@@ -119,7 +119,7 @@ public class GameCanvas extends Canvas {
 		
 		//Enemy Collision
 		boolean playerinvincible = this.model.getPlayer().isInvicible();
-		for (Sprite sp : this.model.getEnemy()) {
+		for (EnemySprite sp : this.model.getEnemy()) {
 			
 			if(this.model.getPlayer().intersects(sp)) {
 				if(!playerinvincible) {
@@ -137,7 +137,7 @@ public class GameCanvas extends Canvas {
 				if(powerup instanceof FasterPowerup) {
 					iterator.remove();
 					this.model.getPlayer().normalisePlayer();
-					this.model.getPlayer().setImage("file:res/fastfish.png");
+					this.model.getPlayer().setImage("file:res/sprite/fastfish.png");
 					this.model.getPlayer().setSpeed(7);
 				}
 				
@@ -145,7 +145,7 @@ public class GameCanvas extends Canvas {
 					
 					iterator.remove();
 					this.model.getPlayer().normalisePlayer();
-					this.model.getPlayer().setImage("file:res/invinciblefish.png");
+					this.model.getPlayer().setImage("file:res/sprite/invinciblefish.png");
 					this.model.getPlayer().setInvincible(true);
 				}
 				 
@@ -199,8 +199,8 @@ public class GameCanvas extends Canvas {
 	
 	//TODO when add new enemy
 	private void enemyMove() {
-		ArrayList<Sprite> enemylist = this.model.getEnemy();
-		for(Sprite sp :enemylist) {
+		ArrayList<EnemySprite> enemylist = this.model.getEnemy();
+		for(EnemySprite sp :enemylist) {
 			if(sp instanceof NormalEnemySprite) {
 				
 				((NormalEnemySprite)sp).move();

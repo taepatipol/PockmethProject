@@ -1,6 +1,5 @@
 package model;
 
-import javafx.scene.image.Image;
 import ui.Sprite;
 
 public class PlayerSprite extends Sprite {
@@ -10,7 +9,7 @@ public class PlayerSprite extends Sprite {
 	public PlayerSprite() {
 		super();
 		setPosition(50, 650);
-		setImage("file:res/fish.png");
+		setImage("file:res/sprite/fish.png");
 		setSpeed(2);
 		this.isInvinvible = false;
 	}
@@ -20,7 +19,7 @@ public class PlayerSprite extends Sprite {
 	public boolean isInvicible() {return this.isInvinvible;}
 	
 	public void normalisePlayer() {
-		setImage("file:res/finh.png");
+		setImage("file:res/sprite/fish.png");
 		setSpeed(2);
 		this.isInvinvible = false;
 	}
