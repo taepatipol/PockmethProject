@@ -186,7 +186,7 @@ public class GameCanvas extends Canvas {
         	
         	if(this.model.getLevel()+1==11) {
 	        	//How Do I go to End Game Menu?
-        		//GameMain.newGame();
+        		
         		SceneManager.stopBackgroundMusic();
         		SceneManager.gotoEndGameMenu();
         	} else {
@@ -278,7 +278,7 @@ public class GameCanvas extends Canvas {
 		
 	}
 	
-	public boolean checkCollide(Sprite a,Sprite b) {
+	private boolean checkCollide(Sprite a,Sprite b) {
 		if(a.intersects(b)) {return true;}
 		return false;
 	}

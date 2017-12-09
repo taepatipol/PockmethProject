@@ -324,13 +324,8 @@ public class GameModel {
 		
 	}
 	
-	public GameModel increaseLevel() {
-		int l = this.level;
-		GameModel gm = new GameModel(l++);
-		return gm;
-	}
 	
-	public boolean renderAll(GraphicsContext gc) {
+	public void renderAll(GraphicsContext gc) {
 		gc.clearRect(0, 0, 1200, 750);
 		gc.drawImage(this.map, 0, 0);
 		this.player.render(gc);
@@ -338,7 +333,7 @@ public class GameModel {
 		for(Sprite sp : this.walllist) {sp.render(gc);}
 		for(Sprite sp : this.powerup) {sp.render(gc);}
 		this.exit.render(gc);
-		return true;
+		
 		
 	}
 	
