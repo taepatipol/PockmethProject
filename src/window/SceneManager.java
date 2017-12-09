@@ -56,7 +56,7 @@ public final class SceneManager {
 					@Override
 					public void run() {
 						while(isBackgroundMusicOn) {
-							BackgroundMusic = new AudioClip("file:res/bg.mp3");
+							BackgroundMusic = new AudioClip("file:res/sound/bg.mp3");
 							BackgroundMusic.play();
 							System.out.println("Thread Running0");
 							try {
@@ -85,7 +85,7 @@ public final class SceneManager {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
-					BackgroundMusic = new AudioClip("file:res/bg.mp3");
+					BackgroundMusic = new AudioClip("file:res/sound/bg.mp3");
 					BackgroundMusic.play();
 					System.out.println("Thread Running1");
 					try {
@@ -117,7 +117,7 @@ public final class SceneManager {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
-					BackgroundMusic = new AudioClip("file:res/bg.mp3");
+					BackgroundMusic = new AudioClip("file:res/sound/bg.mp3");
 					BackgroundMusic.play();
 					System.out.println("Thread Running2");
 					try {
@@ -150,25 +150,25 @@ public final class SceneManager {
 	
 	public static void playWinningSound() {
 		//Find sound when player reach Exit
-		AudioClip effect = new AudioClip("file:res/LevelUp.mp3");
+		AudioClip effect = new AudioClip("file:res/sound/LevelUp.mp3");
 		effect.play();
 	}
 	
 	public static void playWallCollisionSound() {
 		//Find sound when player hit wall //done
-		AudioClip effect = new AudioClip("file:res/collideWall.mp3");
+		AudioClip effect = new AudioClip("file:res/sound/collideWall.mp3");
 		effect.play();
 	}
 	
 	public static void playEnemyCollisionSound() {
 		//Find sound when player hit enemy 
-		AudioClip effect = new AudioClip("file:res/button2.mp3");
+		AudioClip effect = new AudioClip("file:res/sound/button2.mp3");
 		effect.play();
 	}
 	
 	public static void playPowerupCollisionSound() {
 		//Find sound when player get powerup //done
-		AudioClip effect = new AudioClip("file:res/getPowerup.mp3");
+		AudioClip effect = new AudioClip("file:res/sound/getPowerup.mp3");
 		effect.play();
 	}
 	

@@ -9,7 +9,7 @@ public class PatrollingEnemySprite extends EnemySprite{
 		super();
 		this.direction = i;
 		setPosition(500, 500);
-		setImage("file:res/PatrollingEnemy.png");
+		setImage("file:res/sprite/patrollingEnemy.png");
 		setSpeed(5);
 		setPosition(x,y);
 		
@@ -21,8 +21,7 @@ public class PatrollingEnemySprite extends EnemySprite{
 		else if (this.direction == 2) {this.direction = 4;}
 		else if (this.direction == 4) {this.direction = 2;}
 	}
-		
-		
+
 	//set move in one direction , if hit wall go opposite direction
 	
 	public void move() {

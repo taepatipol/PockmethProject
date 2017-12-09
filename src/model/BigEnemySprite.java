@@ -3,16 +3,11 @@ package model;
 import java.util.Random;
 
 public class BigEnemySprite extends EnemySprite{
-	public BigEnemySprite() {
-		super();
-		setPosition(500,500);
-		setImage("file:res/bigEnemyRandom.png");
-	}
 	
 	public BigEnemySprite(int x,int y) {
 		super();
 		setPosition(x,y);
-		setImage("file:res/bigEnemyRandom.png");
+		setImage("file:res/sprite/bigEnemyRandom.png");
 	}
 	
 	public void move() {

@@ -11,7 +11,6 @@ public class GameMain {
 
 
 	public static void newGame() {
-		
 		model = new GameModel(1);
 		canvas = new GameCanvas(model);
 		SceneManager.gotoSceneOf(canvas);
@@ -19,15 +18,12 @@ public class GameMain {
 		SceneManager.playBackgroundMusic();
 	}
 	
-	
 	public static void goToNextLevel() {
 		model = model.increaseLevel();
 		canvas = new GameCanvas(model);
 		SceneManager.gotoSceneOf(canvas);
 		canvas.startAnimation();
 	}
-	
-
 	
 	public static void stopGameLogicAndAnimation() {
 		canvas.stopAnimation();

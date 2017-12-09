@@ -1,8 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Vector;
-
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import ui.Sprite;
@@ -12,8 +10,8 @@ public class GameModel {
 	private int level;
 	private long elaspedNanoTime;
 	private PlayerSprite player;
-	private ArrayList<Sprite> enemylist;
-	private ArrayList<Sprite> walllist;
+	private ArrayList<EnemySprite> enemylist;
+	private ArrayList<WallSprite> walllist;
 	private Image map;
 	private ArrayList<Powerup> powerup;
 	private ExitSprite exit;
@@ -23,11 +21,11 @@ public class GameModel {
 	
 	}
 	
-	public ArrayList<Sprite> getEnemy() {
+	public ArrayList<EnemySprite> getEnemy() {
 		return this.enemylist;
 	}
 	
-	public ArrayList<Sprite> getWall() {
+	public ArrayList<WallSprite> getWall() {
 		return this.walllist;
 	}
 	
@@ -36,9 +34,7 @@ public class GameModel {
 	public ArrayList<Powerup> getPowerup() {
 		return this.powerup;
 	}
-	
-	
-	
+
 	public int getLevel() {return this.level;}
 	
 	//function to get new model
@@ -48,8 +44,8 @@ public class GameModel {
 			this.level = 1;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 		
 			
 			for (int i1 = 1;i1<21;i1++) {
@@ -78,8 +74,8 @@ public class GameModel {
 			this.level = 2;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new BigEnemySprite(800,400));
 			this.walllist = border();
 			this.walllist.addAll(this.createWall(4, 4, 9, 9));
@@ -94,8 +90,8 @@ public class GameModel {
 			this.level = 3;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new PatrollingBigEnemySprite(10*50,7*50,1));
 			this.enemylist.add(new PatrollingEnemySprite(9*50,1*50,4));
 			this.enemylist.add(new PatrollingEnemySprite(9*50,2*50,4));
@@ -113,8 +109,8 @@ public class GameModel {
 			this.level = 4;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new CircleBigEnemySprite(4*50,1*50,2,1));
 			this.enemylist.add(new CircleBigEnemySprite(13*50,10*50,4,1));
 			this.enemylist.add(new BigEnemySprite(18*50,10*50));
@@ -132,8 +128,8 @@ public class GameModel {
 			this.level = 5;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 			PatrollingBigEnemySprite sp = new PatrollingBigEnemySprite(8*50,7*50,4);
 			sp.setSpeed(2);
 			this.enemylist.add(sp);
@@ -155,8 +151,8 @@ public class GameModel {
 			this.level = 6;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 			for(int j = 5;j <= 11;j++) {
 				this.enemylist.add(new NormalEnemySprite(j*2*50,2*50));
 			}
@@ -177,8 +173,8 @@ public class GameModel {
 			this.level = 7;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 			PatrollingBigEnemySprite sp = new PatrollingBigEnemySprite(15*50,9*50,4);
 			sp.setSpeed(8);
 			this.enemylist.add(sp);
@@ -224,8 +220,8 @@ public class GameModel {
 			this.level = 8;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new CircleBigEnemySprite(8*50,4*50,2,1));
 			this.enemylist.add(new CircleBigEnemySprite(12*50,8*50,4,1));
 			this.enemylist.add(new NormalEnemySprite(2*50,2*50));
@@ -254,8 +250,8 @@ public class GameModel {
 			this.level = 9;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 		
 			
 			for (int i1 = 1;i1<23;i1++) {
@@ -266,9 +262,6 @@ public class GameModel {
 				this.enemylist.add(n);
 				
 			}
-		
-		
-		
 			this.walllist = border();
 			
 			this.powerup = new ArrayList<Powerup>();
@@ -285,21 +278,16 @@ public class GameModel {
 			this.level = 10;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/bg.jpg");
-			this.enemylist = new ArrayList<Sprite>();
+			this.map = new Image("file:res/background/bg.jpg");
+			this.enemylist = new ArrayList<EnemySprite>();
 		
 			
 			for (int i1 = 1;i1<21;i1++) {
 				NormalEnemySprite n = new NormalEnemySprite(i1*50,2*50);
-				
 				n.setSpeed(0);
-				
 				this.enemylist.add(n);
-				
 				NormalEnemySprite n2 = new NormalEnemySprite(i1*50,1*50);
-				
 				n2.setSpeed(0);
-				
 				this.enemylist.add(n2);
 			}
 			this.enemylist.add(new PatrollingBigEnemySprite(2*50,7*50,4));
@@ -334,25 +322,6 @@ public class GameModel {
 			this.exit = new ExitSprite();
 		}
 		
-		else {
-			
-		}
-		
-		
-		/*if(i == 3) {}
-		if(i == 4) {}
-		if(i == 5) {}
-		if(i == 6) {}
-		if(i == 7) {}
-		if(i == 8) {}
-		if(i == 9) {}
-		if(i == 10) {}*/
-		
-		
-			
-		
-		
-		
 	}
 	
 	public GameModel increaseLevel() {
@@ -373,10 +342,7 @@ public class GameModel {
 		
 	}
 	
-	//misc function
-	
 	public void increaseTime(long e) {this.elaspedNanoTime += e;}
-	
 	
 	public long getTimeNanosecond() {
 		return this.elaspedNanoTime;
@@ -387,11 +353,8 @@ public class GameModel {
 		return (int)x;
 	}
 	
-	
-	
-	public ArrayList<Sprite> border() {
-		 ArrayList<Sprite> b = new ArrayList<Sprite>();
-		 
+	public ArrayList<WallSprite> border() {
+		 ArrayList<WallSprite> b = new ArrayList<WallSprite>();
 		 for(double i=-0;i<1250;i+=50) {
 			 WallSprite sp = new WallSprite();
 		
@@ -404,20 +367,17 @@ public class GameModel {
 		}
 		 for(double i=-0;i<1150;i+=50) {
 			 WallSprite sp = new WallSprite();
-			
 			 sp.setPosition((double)i, 700);
 			 b.add(sp);
 			 WallSprite sp2 = new WallSprite();
-			
 			 sp2.setPosition((double)i,0);
 			 b.add(sp2);
 		}
-		 
 		 return b;
 	}
 	
-	public ArrayList<Sprite> createWall(int x1,int y1,int x2,int y2){
-		ArrayList<Sprite> l = new ArrayList<Sprite>();
+	public ArrayList<WallSprite> createWall(int x1,int y1,int x2,int y2){
+		ArrayList<WallSprite> l = new ArrayList<WallSprite>();
 		for(int x = x1; x<=x2; x++) { for(int y = y1; y<=y2; y++) {
 			WallSprite sp = new WallSprite();
 			sp.setPosition(x*50, y*50);
@@ -426,121 +386,8 @@ public class GameModel {
 		return l;
 	}
 	
-	
 }
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	// TODO fill code
-	public GameState gameState;
-	
-	
-	public float getPlayerXcoor() {
-		return this.gameState.player.getXcoor();
-	}
-	
-	public float getPlayerYcoor() {
-		return this.gameState.player.getYcoor();
-	}
-	
-	public Enemy[] getEnemies() {
-		return this.gameState.enemies;
-	}
-	
-	
-	
-	public void playerMove(char di) {
-		float xplayer = getPlayerXcoor();
-		float yplayer = getPlayerYcoor();
-		if(checkDirection(di,xplayer,yplayer)) {
-		this.gameState.player.move(di);
-		return;
-		}
-	}
-	
-	public void enemyMove() {
-		Enemy[] enemies = this.getEnemies();
-		for(Enemy e : enemies) {
-			for(int i = 0 ; i<e.getSpeed();i++) {e.move();}
-		}
-	}
-	
-	public boolean checkNextLevel() {
-		float x = getPlayerXcoor();
-		float y = getPlayerYcoor();
-		if((int)x==1150 && (int)y==0) {return true;}
-		return false;
-	}
-	
-	public GameModel() { //constructor
-		this.gameState = new GameState();
-		//this.map = new MapModel(1200,800);
-	}
-		
-	public void increaseTime(long increasedNanoTime) {
-		this.gameState.elapasedNanoTime += increasedNanoTime;
-	}
-	
-	private long getTimeNanosecond() {
-		return this.gameState.elapasedNanoTime;
-	}
-	
-	public int getTimeSecond() {
-		long x = getTimeNanosecond()/1000000000;
-		return (int)x;
-	}
-	
-	public void increasedLevel() {
-		this.gameState.updateLevel();
-	}
 
-	private boolean checkDirection(char di,float x,float y) { //input 0 1 2 3 up down left right output true=can false=cant
-		//finished
-
-		switch(di) {	
-	case 'w':
-		
-			y-=50;
-			if(!gameState.checkWall((int)x, (int)y)) {return false;}
-			return true;
-		
-	case 's':
-		
-			y+=50;
-			if(!gameState.checkWall((int)x, (int)y)) {return false;}
-			return true;
-		
-	case 'a':
-		
-			x-=50;
-			if(!gameState.checkWall((int)x, (int)y)) {return false;}
-			return true;
-		
-		
-	case 'd':
-		
-			x+=50;
-			if(!gameState.checkWall((int)x, (int)y)) {return false;}
-			return true;
-		
-		
-	default:
-		return false;
-	}
-		
-		
-	}
-	
-	
-	
-	public Vector<Position> getWall() {return gameState.getWall();}*/
 
