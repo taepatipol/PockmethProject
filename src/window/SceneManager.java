@@ -56,11 +56,11 @@ public final class SceneManager {
 					@Override
 					public void run() {
 						while(isBackgroundMusicOn) {
-							BackgroundMusic = new AudioClip("file:res/sound/bg.mp3");
+							BackgroundMusic = new AudioClip("file:res/sound/end.mp3");
 							BackgroundMusic.play();
 							System.out.println("Thread Running0");
 							try {
-								Thread.sleep(14500);
+								Thread.sleep(65000);
 								
 							} catch (Exception e) {System.out.println("Shutdown");}
 							}
@@ -85,11 +85,11 @@ public final class SceneManager {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
-					BackgroundMusic = new AudioClip("file:res/sound/bg.mp3");
+					BackgroundMusic = new AudioClip("file:res/sound/home.mp3");
 					BackgroundMusic.play();
 					System.out.println("Thread Running1");
 					try {
-						Thread.sleep(14500);
+						Thread.sleep(27000);
 						
 					} catch (Exception e) {System.out.println("Shutdown");}
 					}
@@ -168,7 +168,7 @@ public final class SceneManager {
 	
 	public static void playPowerupCollisionSound() {
 		//Find sound when player get powerup //done
-		AudioClip effect = new AudioClip("file:res/sound/getPowerup.mp3");
+		AudioClip effect = new AudioClip("file:res/sound/getPowerup2.mp3");
 		effect.play();
 	}
 	
