@@ -12,7 +12,7 @@ public class Main extends Application {
 			
 			SceneManager.initialize(primaryStage);
 			SceneManager.gotoMainMenu();
-			primaryStage.setTitle("PockMeth Project");
+			primaryStage.setTitle("Finding Fishy");
 			primaryStage.centerOnScreen();
 			primaryStage.show();	  
 			

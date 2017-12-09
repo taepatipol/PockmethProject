@@ -8,7 +8,6 @@ public class PatrollingBigEnemySprite extends EnemySprite{
 	public PatrollingBigEnemySprite(double x,double y,int i) {
 		super();
 		this.direction = i;
-		setPosition(500, 500);
 		setImage("file:res/sprite/bigEnemy.png");
 		setSpeed(5);
 		setPosition(x,y);

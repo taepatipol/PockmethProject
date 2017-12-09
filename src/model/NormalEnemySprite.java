@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class NormalEnemySprite extends EnemySprite{
 
-	public NormalEnemySprite(int x,int y) {
+	public NormalEnemySprite(float x,float y) {
 		super();
 		setPosition(x, y);
 		setImage("file:res/sprite/normalEnemy.png");

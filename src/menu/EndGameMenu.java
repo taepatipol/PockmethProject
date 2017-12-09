@@ -1,13 +1,11 @@
 package menu;
 
-
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Font;
 import window.SceneManager;
 public class EndGameMenu extends Canvas {
 

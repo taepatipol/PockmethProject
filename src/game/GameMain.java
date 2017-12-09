@@ -25,12 +25,9 @@ public class GameMain {
 		canvas.startAnimation();
 	}
 	
-	public static void stopGameLogicAndAnimation() {
-		canvas.stopAnimation();
-	}
 
 	public static void stopGame() {
-		stopGameLogicAndAnimation();
+		canvas.stopAnimation();
 	}
 
 }

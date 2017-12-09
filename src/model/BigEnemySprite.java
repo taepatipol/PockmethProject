@@ -6,7 +6,7 @@ public class BigEnemySprite extends EnemySprite{
 	
 	
 	
-	public BigEnemySprite(int x,int y) {
+	public BigEnemySprite(double x,double y) {
 		super();
 		setPosition(x,y);
 		setImage("file:res/sprite/bigEnemyRandom.png");
