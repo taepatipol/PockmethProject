@@ -44,25 +44,15 @@ public class GameModel {
 			this.level = 1;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			this.map = new Image("file:res/background/bg1.jpg");
 			this.enemylist = new ArrayList<EnemySprite>();
-		
-			
-			for (int i1 = 1;i1<21;i1++) {
-				if(i1%2==1) {
-					this.enemylist.add( new PatrollingEnemySprite(100+(i1*50),300,1));
-				}
-			}
-		
-		
-		
+			this.enemylist.add(new PatrollingEnemySprite(20*50,50,3));
 			this.walllist = border();
-			
 			this.powerup = new ArrayList<Powerup>();
-			this.powerup.add(new FasterPowerup(350,340));
-			this.powerup.add(new InvinciblePowerup(450,340));
-			this.powerup.add(new SlowPowerup(550,340));
-			this.powerup.add(new StopPowerup(1*50,12*50));
+			this.powerup.add(new FasterPowerup(8*50,6*50));
+			this.powerup.add(new InvinciblePowerup(15*50,6*50));
+			this.powerup.add(new SlowPowerup(8*50,11*50));
+			this.powerup.add(new StopPowerup(15*50,11*50));
 			
 			this.exit = new ExitSprite();
 			
