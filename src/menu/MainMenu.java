@@ -4,6 +4,7 @@ import game.GameMain;
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -20,15 +21,9 @@ public class MainMenu extends Canvas {
 		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 
 		GraphicsContext gc = this.getGraphicsContext2D();
-		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
-		gc.setTextAlign(TextAlignment.CENTER);
-		gc.setFill(Color.CRIMSON);
-		gc.setFont(TITLE_FONT);
-		gc.fillText("Zombie Simulator", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT / 4);
-		gc.setFont(MENU_FONT);
-		gc.fillText("Press Enter to SURVIVE!", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT * 3 / 4);
-		
+		Image background = new Image("file:res/welcome.jpg");
+		gc.clearRect(0, 0, 1200, 750);
+		gc.drawImage(background, 0, 0);
 		this.addKeyEventHandler();
 		
 	}
