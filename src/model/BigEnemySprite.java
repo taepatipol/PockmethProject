@@ -4,10 +4,13 @@ import java.util.Random;
 
 public class BigEnemySprite extends EnemySprite{
 	
+	
+	
 	public BigEnemySprite(int x,int y) {
 		super();
 		setPosition(x,y);
 		setImage("file:res/sprite/bigEnemyRandom.png");
+		setSpeed(1);
 	}
 	
 	public void move() {

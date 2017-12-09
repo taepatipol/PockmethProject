@@ -78,7 +78,7 @@ public class GameCanvas extends Canvas {
 		enemyMove();
 		
 		
-		for (Sprite sp : this.model.getEnemy()) {
+		for (EnemySprite sp : this.model.getEnemy()) {
 			sp.update(LOOP_TIME/10000000);
 		}
 		for (Sprite sp : this.model.getWall()) {
