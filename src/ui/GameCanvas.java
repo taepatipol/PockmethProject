@@ -184,9 +184,11 @@ public class GameCanvas extends Canvas {
         	System.out.println("Exit reached");     	
         	SceneManager.playWinningSound();
         	
-        	if(this.model.getLevel()+1==10) {
+        	if(this.model.getLevel()+1==11) {
 	        	//How Do I go to End Game Menu?
-        		GameMain.newGame();
+        		//GameMain.newGame();
+        		SceneManager.stopBackgroundMusic();
+        		SceneManager.gotoEndGameMenu();
         	} else {
         		this.model = new GameModel(this.model.getLevel()+1);
         	}
@@ -254,7 +256,7 @@ public class GameCanvas extends Canvas {
 		        //cheat to next level
 		        if (c=='c') {
 		        	
-		        	if(this.model.getLevel()+1==10) {
+		        	if(this.model.getLevel()+1==11) {
 			        	//How Do I go to End Game Menu?
 		        		SceneManager.stopBackgroundMusic();
 		        		SceneManager.gotoEndGameMenu();

@@ -279,6 +279,61 @@ public class GameModel {
 			this.exit = new ExitSprite();
 		}
 		
+		
+		if(i==10) {
+			System.out.println("Level9");
+			this.level = 10;
+			this.elaspedNanoTime = 0;
+			this.player = new PlayerSprite();
+			this.map = new Image("file:res/bg.jpg");
+			this.enemylist = new ArrayList<Sprite>();
+		
+			
+			for (int i1 = 1;i1<21;i1++) {
+				NormalEnemySprite n = new NormalEnemySprite(i1*50,2*50);
+				
+				n.setSpeed(0);
+				
+				this.enemylist.add(n);
+				
+				NormalEnemySprite n2 = new NormalEnemySprite(i1*50,1*50);
+				
+				n2.setSpeed(0);
+				
+				this.enemylist.add(n2);
+			}
+			this.enemylist.add(new PatrollingBigEnemySprite(2*50,7*50,4));
+			this.enemylist.add(new PatrollingBigEnemySprite(18*50,7*50,2));
+			this.enemylist.add(new CircleBigEnemySprite(1*50,1*50,2,1));
+		
+		
+			this.walllist = border();
+			this.walllist.addAll(this.createWall(2, 13, 2, 13));
+			this.powerup = new ArrayList<Powerup>();
+			for(int y = 3;y<=13;y++) {
+				if(y<5) {
+					//this.powerup.add(new StartPowerup(5*50,y*50));
+					this.powerup.add(new StartPowerup(10*50,y*50));
+					//this.powerup.add(new StartPowerup(15*50,y*50));
+					this.powerup.add(new StartPowerup(20*50,y*50));
+				}
+				else if(y>11) {
+					this.powerup.add(new StartPowerup(5*50,y*50));
+					//this.powerup.add(new StartPowerup(10*50,y*50));
+					this.powerup.add(new StartPowerup(15*50,y*50));
+					//this.powerup.add(new StartPowerup(20*50,y*50));
+				}
+				else {
+					this.powerup.add(new StartPowerup(5*50,y*50));
+					this.powerup.add(new StartPowerup(10*50,y*50));
+					this.powerup.add(new StartPowerup(15*50,y*50));
+					this.powerup.add(new StartPowerup(20*50,y*50));
+				}
+			}
+			this.powerup.add(new FasterPowerup(1*50,13*50));
+			this.exit = new ExitSprite();
+		}
+		
 		else {
 			
 		}
