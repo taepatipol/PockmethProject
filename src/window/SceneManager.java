@@ -30,6 +30,7 @@ public final class SceneManager {
 		//TODO Fill Code
 		primaryStage.setScene(mainMenuScene);
 		mainMenuCanvas.requestFocus();
+	//	playMainMenuMusic(); // Remove this and its alright? Why?
 		
 	}
 
@@ -57,7 +58,7 @@ public final class SceneManager {
 						while(isBackgroundMusicOn) {
 							BackgroundMusic = new AudioClip("file:res/bg.mp3");
 							BackgroundMusic.play();
-							System.out.println("Thread Running");
+							System.out.println("Thread Running0");
 							try {
 								Thread.sleep(14500);
 								
@@ -80,13 +81,13 @@ public final class SceneManager {
 		//find main menu music
 		isBackgroundMusicOn = true;
 		
-		bgThread =new Thread(new Runnable() {
+		bgThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
 					BackgroundMusic = new AudioClip("file:res/bg.mp3");
 					BackgroundMusic.play();
-					System.out.println("Thread Running");
+					System.out.println("Thread Running1");
 					try {
 						Thread.sleep(14500);
 						
@@ -118,7 +119,7 @@ public final class SceneManager {
 				while(isBackgroundMusicOn) {
 					BackgroundMusic = new AudioClip("file:res/bg.mp3");
 					BackgroundMusic.play();
-					System.out.println("Thread Running");
+					System.out.println("Thread Running2");
 					try {
 						Thread.sleep(14500);
 						
@@ -141,8 +142,9 @@ public final class SceneManager {
 
 	public static void stopBackgroundMusic() {
 		bgThread.stop();
-		BackgroundMusic.stop();
 		isBackgroundMusicOn = false;
+		BackgroundMusic.stop();
+	
 		
 	}
 	
