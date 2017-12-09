@@ -6,6 +6,7 @@ public class ExitSprite extends Sprite{
 	public ExitSprite() {
 		super();
 		setPosition(1100,50);
-		setImage("file:res/sprite/flag.png");
+		String path = ClassLoader.getSystemResource("sprite/flag.png").toString();
+		setImage(path);
 	}
 }

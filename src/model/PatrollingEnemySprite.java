@@ -9,7 +9,8 @@ public class PatrollingEnemySprite extends EnemySprite{
 		super();
 		this.direction = i;
 		setPosition(500, 500);
-		setImage("file:res/sprite/patrollingEnemy.png");
+		String path = ClassLoader.getSystemResource("sprite/patrollingEnemy.png").toString();
+		setImage(path);
 		setSpeed(5);
 		setPosition(x,y);
 		

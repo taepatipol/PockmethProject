@@ -7,7 +7,8 @@ public class NormalEnemySprite extends EnemySprite{
 	public NormalEnemySprite(float x,float y) {
 		super();
 		setPosition(x, y);
-		setImage("file:res/sprite/normalEnemy.png");
+		String path = ClassLoader.getSystemResource("sprite/normalEnemy.png").toString();
+		setImage(path);
 		setSpeed(1);
 		
 	}

@@ -10,7 +10,8 @@ public class CircleBigEnemySprite extends EnemySprite{
 		super();
 		this.direction = i;
 		this.clockwise = c;
-		setImage("file:res/sprite/bigEnemy.png");
+		String path = ClassLoader.getSystemResource("sprite/bigEnemy.png").toString();
+		setImage(path);
 		setSpeed(5);
 		setPosition(x,y);
 		

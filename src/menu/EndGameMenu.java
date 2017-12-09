@@ -13,7 +13,8 @@ public class EndGameMenu extends Canvas {
 		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 
 		GraphicsContext gc = this.getGraphicsContext2D();
-		Image background = new Image("file:res/background/end.jpg");
+		String path = ClassLoader.getSystemResource("background/end.jpg").toString();
+		Image background = new Image(path);
 		gc.clearRect(0, 0, 1200, 750);
 		gc.drawImage(background, 0, 0);
 		this.addKeyEventHandler();
