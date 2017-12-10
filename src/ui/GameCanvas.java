@@ -5,6 +5,7 @@ import java.util.Iterator;
 import ui.CodeUtility;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import model.BigEnemySprite;
 import model.CircleBigEnemySprite;
@@ -95,14 +96,12 @@ public class GameCanvas extends Canvas {
 		for (WallSprite sp : this.model.getWall()) {
 			//Check PLayer
 			if(this.model.getPlayer().intersects(sp)) {
-				System.out.println("Collide Wall");
 				SceneManager.playWallCollisionSound();
 				model.getPlayer().rebound();
 			}
 			//Check Enemy and Wall
 			for (EnemySprite sp1 : this.model.getEnemy()) {
 				if(checkCollide(sp1,sp) ) {
-					System.out.println("Enemy Collide Wall");
 					sp1.rebound();
 					if(sp1 instanceof PatrollingEnemySprite) {
 						((PatrollingEnemySprite) sp1).changeDirection();
@@ -120,7 +119,6 @@ public class GameCanvas extends Canvas {
 		//Enemy Collision
 		boolean playerinvincible = this.model.getPlayer().isInvicible();
 		for (EnemySprite sp : this.model.getEnemy()) {
-			
 			if(this.model.getPlayer().intersects(sp)) {
 				if(!playerinvincible) {
 					this.model = new GameModel(this.model.getLevel());SceneManager.playEnemyCollisionSound();
@@ -173,20 +171,16 @@ public class GameCanvas extends Canvas {
 						enemy.setSpeed(1);
 					}
 				}
-				
-				System.out.println("Powerup Collide");   
+
 			}
 		}
 		
 		
 		//Exit collide
-        if(this.model.getPlayer().intersects(this.model.getExit())) {
-        	System.out.println("Exit reached");     	
-        	SceneManager.playWinningSound();
-        	
+        if(this.model.getPlayer().intersects(this.model.getExit())) {    	
+        	SceneManager.playWinningSound();	
         	if(this.model.getLevel()+1==11) {
-	        	//How Do I go to End Game Menu?
-        		
+        		//Go to End GameMenu
         		SceneManager.stopBackgroundMusic();
         		SceneManager.gotoEndGameMenu();
         	} else {
@@ -234,27 +228,26 @@ public class GameCanvas extends Canvas {
 		CodeUtility cu = new CodeUtility();
 		this.setOnKeyPressed((KeyEvent event) -> {
 			if(!cu.isPressed) {	
-				char c = event.getText().charAt(0);
 				cu.setPressed(true);
 				int sp = model.getPlayer().getSpeed();
-		        if (c=='w') {
+		        if (event.getCode()==KeyCode.W) {
 		        	model.getPlayer().addVelocity(0,-1*sp);
 		        	
 		        }
-		        if (c=='d') {
+		        if (event.getCode()==KeyCode.D) {
 		        	model.getPlayer().addVelocity(1*sp,0);
 		        	
 		        }
-		        if (c=='s') {
+		        if (event.getCode()==KeyCode.S) {
 		        	model.getPlayer().addVelocity(0,1*sp);
 		        	
 		        }
-		        if (c=='a') {
+		        if (event.getCode()==KeyCode.A) {
 		        	model.getPlayer().addVelocity(-1*sp,0);
 		        	
 		        }
 		        //cheat to next level
-		        if (c=='c') {
+		        if (event.getCode()==KeyCode.C) {
 		        	
 		        	if(this.model.getLevel()+1==11) {
 			        	//How Do I go to End Game Menu?

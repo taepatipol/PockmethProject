@@ -13,11 +13,11 @@ public final class SceneManager {
 	private static Stage primaryStage;
 	private static Canvas mainMenuCanvas = new MainMenu();
 	private static Scene mainMenuScene = new Scene(new Pane(mainMenuCanvas));
-	private static Canvas EndGameMenuCanvas = new EndGameMenu();
-	private static Scene EndGameMenuScene = new Scene(new Pane(EndGameMenuCanvas));
+	private static Canvas endGameMenuCanvas = new EndGameMenu();
+	private static Scene endGameMenuScene = new Scene(new Pane(endGameMenuCanvas));
 	public static final int SCENE_WIDTH = 1200;
 	public static final int SCENE_HEIGHT = 750;
-	private static AudioClip BackgroundMusic;
+	private static AudioClip backgroundMusic;
 	private static boolean isBackgroundMusicOn;
 	private static Thread bgThread;
 
@@ -43,8 +43,8 @@ public final class SceneManager {
 	}
 	
 	public static void gotoEndGameMenu() {
-		primaryStage.setScene(EndGameMenuScene);
-		EndGameMenuCanvas.requestFocus();
+		primaryStage.setScene(endGameMenuScene);
+		endGameMenuCanvas.requestFocus();
 		playEndGameMusic();
 	}
 	
@@ -56,9 +56,9 @@ public final class SceneManager {
 					@Override
 					public void run() {
 						while(isBackgroundMusicOn) {
-							BackgroundMusic = new AudioClip("file:res/sound/end.mp3");
-							BackgroundMusic.play();
-							System.out.println("Thread Running0");
+							backgroundMusic = new AudioClip("file:res/sound/end.mp3");
+							backgroundMusic.play();
+					//		System.out.println("Thread Running0");
 							try {
 								Thread.sleep(65000);
 								
@@ -78,16 +78,16 @@ public final class SceneManager {
 	
 	public static void playMainMenuMusic() {
 		
-		//find main menu music
+		//play main menu music
 		isBackgroundMusicOn = true;
 		
 		bgThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
-					BackgroundMusic = new AudioClip("file:res/sound/home.mp3");
-					BackgroundMusic.play();
-					System.out.println("Thread Running1");
+					backgroundMusic = new AudioClip("file:res/sound/home.mp3");
+					backgroundMusic.play();
+			//		System.out.println("Thread Running1");
 					try {
 						Thread.sleep(27000);
 						
@@ -108,8 +108,7 @@ public final class SceneManager {
 	
 	
 	public static void playBackgroundMusic() {
-		//find BackGround Music
-		//Might be buggy
+		//play BackGround Music
 		
 		isBackgroundMusicOn = true;
 		
@@ -117,9 +116,9 @@ public final class SceneManager {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
-					BackgroundMusic = new AudioClip("file:res/sound/bg.mp3");
-					BackgroundMusic.play();
-					System.out.println("Thread Running2");
+					backgroundMusic = new AudioClip("file:res/sound/bg.mp3");
+					backgroundMusic.play();
+		//			System.out.println("Thread Running2");
 					try {
 						Thread.sleep(14500);
 						
@@ -141,40 +140,37 @@ public final class SceneManager {
 	
 
 	public static void stopBackgroundMusic() {
+		//stop all music
 		bgThread.stop();
 		isBackgroundMusicOn = false;
-		BackgroundMusic.stop();
+		backgroundMusic.stop();
 	
 		
 	}
 	
 	public static void playWinningSound() {
-		//Find sound when player reach Exit
+		//Player reach Exit
 		AudioClip effect = new AudioClip("file:res/sound/LevelUp.mp3");
 		effect.play();
 	}
 	
 	public static void playWallCollisionSound() {
-		//Find sound when player hit wall //done
+		//Player hit wall //done
 		AudioClip effect = new AudioClip("file:res/sound/collideWall.mp3");
 		effect.play();
 	}
 	
 	public static void playEnemyCollisionSound() {
-		//Find sound when player hit enemy 
+		//Player hit enemy 
 		AudioClip effect = new AudioClip("file:res/sound/button2.mp3");
 		effect.play();
 	}
 	
 	public static void playPowerupCollisionSound() {
-		//Find sound when player get powerup //done
+		//Player get powerup
 		AudioClip effect = new AudioClip("file:res/sound/getPowerup2.mp3");
 		effect.play();
 	}
 	
-	public static void stopMusic() {
-		BackgroundMusic.stop();
-		
-	}
 	
 }
