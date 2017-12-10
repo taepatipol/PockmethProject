@@ -1,7 +1,5 @@
 package model;
 
-import javafx.scene.image.Image;
-
 public class InvinciblePowerup extends Powerup{
 	
 	public InvinciblePowerup(double x , double y) {
