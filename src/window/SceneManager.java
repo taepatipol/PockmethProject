@@ -141,7 +141,7 @@ public final class SceneManager {
 
 	public static void stopBackgroundMusic() {
 		//stop all music
-		bgThread.stop();
+		bgThread.interrupt();
 		isBackgroundMusicOn = false;
 		backgroundMusic.stop();
 	

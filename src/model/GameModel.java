@@ -264,7 +264,7 @@ public class GameModel {
 		
 		
 		if(i==10) {
-			System.out.println("Level9");
+			System.out.println("Level10");
 			this.level = 10;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();

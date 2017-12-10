@@ -48,6 +48,7 @@ public class GameCanvas extends Canvas {
 
 	public void stopAnimation() {
 		isAnimationRunning = false;
+		//gameAnimation.interrupt();
 	}
 
 	private void animationLoop() {
