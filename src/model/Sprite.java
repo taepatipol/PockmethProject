@@ -1,4 +1,4 @@
-package ui;
+package model;
 
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
@@ -11,8 +11,8 @@ public abstract class Sprite
     private double ppY;  
     private double positionX;
     private double positionY; 
-    private double prevX;
-    private double prevY;    
+    private double pX;
+    private double pY;    
     private double velocityX;
     private double velocityY;
     private double width;
@@ -23,8 +23,8 @@ public abstract class Sprite
     {
     	ppX = 0;
     	ppY = 0;
-    	prevX = 0;
-    	prevY = 0;
+    	pX = 0;
+    	pY = 0;
         positionX = 0;
         positionY = 0;    
         velocityX = 0;
@@ -46,8 +46,6 @@ public abstract class Sprite
 
     public void setPosition(double x, double y)
     {	
-    	
-    	if((x<0 || x>1200) || (y<0 || y>800)) {return;}
         positionX = x;
         positionY = y;
     }
@@ -69,10 +67,10 @@ public abstract class Sprite
 
     public void update(double time)
     {
-    	ppX = prevX;
-    	ppY = prevY;
-    	prevX = positionX;
-    	prevY = positionY;
+    	ppX = pX;
+    	ppY = pY;
+    	pX = positionX;
+    	pY = positionY;
         positionX += velocityX * time;
         positionY += velocityY * time;
     }
@@ -97,9 +95,5 @@ public abstract class Sprite
         return s.getBoundary().intersects( this.getBoundary() );
     }
     
-    public String toString()
-    {
-        return " Position: [" + positionX + "," + positionY + "]" 
-        + " Velocity: [" + velocityX + "," + velocityY + "]";
-    }
+  
 }
