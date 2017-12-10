@@ -137,7 +137,8 @@ public class GameCanvas extends Canvas {
 				if(powerup instanceof FasterPowerup) {
 					iterator.remove();
 					this.model.getPlayer().normalisePlayer();
-					this.model.getPlayer().setImage("file:res/sprite/fastfish.png");
+					String path = ClassLoader.getSystemResource("sprite/fastfish.png").toString();
+					this.model.getPlayer().setImage(path);
 					this.model.getPlayer().setSpeed(7);
 				}
 				
@@ -145,7 +146,8 @@ public class GameCanvas extends Canvas {
 					
 					iterator.remove();
 					this.model.getPlayer().normalisePlayer();
-					this.model.getPlayer().setImage("file:res/sprite/invinciblefish.png");
+					String path = ClassLoader.getSystemResource("sprite/invinciblefish.png").toString();
+					this.model.getPlayer().setImage(path);
 					this.model.getPlayer().setInvincible(true);
 				}
 				 

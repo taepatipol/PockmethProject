@@ -56,9 +56,12 @@ public final class SceneManager {
 					@Override
 					public void run() {
 						while(isBackgroundMusicOn) {
-							backgroundMusic = new AudioClip("file:res/sound/end.mp3");
+
+							String audio_path = ClassLoader.getSystemResource("sound/end.mp3").toString();
+							backgroundMusic = new AudioClip(audio_path);
 							backgroundMusic.play();
-				
+
+
 							try {
 								Thread.sleep(65000);
 								
@@ -85,9 +88,12 @@ public final class SceneManager {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
-					backgroundMusic = new AudioClip("file:res/sound/home.mp3");
+
+					String audio_path = ClassLoader.getSystemResource("sound/home.mp3").toString();
+					backgroundMusic = new AudioClip(audio_path);
 					backgroundMusic.play();
-			
+					
+
 					try {
 						Thread.sleep(27000);
 						
@@ -116,9 +122,12 @@ public final class SceneManager {
 			@Override
 			public void run() {
 				while(isBackgroundMusicOn) {
-					backgroundMusic = new AudioClip("file:res/sound/bg.mp3");
+
+					String audio_path = ClassLoader.getSystemResource("sound/bg.mp3").toString();
+					backgroundMusic = new AudioClip(audio_path);
 					backgroundMusic.play();
-	
+					
+
 					try {
 						Thread.sleep(14500);
 						
@@ -149,26 +158,35 @@ public final class SceneManager {
 	}
 	
 	public static void playWinningSound() {
-		//Player reach Exit
-		AudioClip effect = new AudioClip("file:res/sound/LevelUp.mp3");
+		//Find sound when player reach Exit
+		String audio_path = ClassLoader.getSystemResource("sound/LevelUp.mp3").toString();
+		AudioClip effect = new AudioClip(audio_path);
+
 		effect.play();
 	}
 	
 	public static void playWallCollisionSound() {
-		//Player hit wall //done
-		AudioClip effect = new AudioClip("file:res/sound/collideWall.mp3");
+
+		//Find sound when player hit wall //done
+		String audio_path = ClassLoader.getSystemResource("sound/collideWall.mp3").toString();
+		AudioClip effect = new AudioClip(audio_path);
 		effect.play();
 	}
 	
 	public static void playEnemyCollisionSound() {
-		//Player hit enemy 
-		AudioClip effect = new AudioClip("file:res/sound/button2.mp3");
+
+		//Find sound when player hit enemy 
+		String audio_path = ClassLoader.getSystemResource("sound/button2.mp3").toString();
+		AudioClip effect = new AudioClip(audio_path);
+
 		effect.play();
 	}
 	
 	public static void playPowerupCollisionSound() {
-		//Player get powerup
-		AudioClip effect = new AudioClip("file:res/sound/getPowerup2.mp3");
+
+		//Find sound when player get powerup //done
+		String audio_path = ClassLoader.getSystemResource("sound/getPowerup2.mp3").toString();
+		AudioClip effect = new AudioClip(audio_path);
 		effect.play();
 	}
 	

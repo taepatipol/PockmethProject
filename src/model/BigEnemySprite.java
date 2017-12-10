@@ -8,7 +8,8 @@ public class BigEnemySprite extends EnemySprite{
 	public BigEnemySprite(double x,double y) {
 		super();
 		setPosition(x,y);
-		setImage("file:res/sprite/bigEnemyRandom.png");
+		String path = ClassLoader.getSystemResource("sprite/bigEnemyRandom.png").toString();
+		setImage(path);
 		setSpeed(1);
 	}
 	

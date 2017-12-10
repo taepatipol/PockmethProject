@@ -43,7 +43,8 @@ public class GameModel {
 			this.level = 1;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg1.jpg");
+			String path = ClassLoader.getSystemResource("background/bg1.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new PatrollingEnemySprite(20*50,50,3));
 			this.walllist = border();
@@ -63,7 +64,8 @@ public class GameModel {
 			this.level = 2;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new BigEnemySprite(800,400));
 			this.walllist = border();
@@ -79,7 +81,8 @@ public class GameModel {
 			this.level = 3;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new PatrollingBigEnemySprite(10*50,7*50,1));
 			this.enemylist.add(new PatrollingEnemySprite(9*50,1*50,4));
@@ -98,7 +101,8 @@ public class GameModel {
 			this.level = 4;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new CircleBigEnemySprite(4*50,1*50,2,1));
 			this.enemylist.add(new CircleBigEnemySprite(13*50,10*50,4,1));
@@ -117,7 +121,8 @@ public class GameModel {
 			this.level = 5;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			PatrollingBigEnemySprite sp = new PatrollingBigEnemySprite(8*50,7*50,4);
 			sp.setSpeed(2);
@@ -140,7 +145,8 @@ public class GameModel {
 			this.level = 6;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			for(int j = 5;j <= 11;j++) {
 				this.enemylist.add(new NormalEnemySprite(j*2*50,2*50));
@@ -162,7 +168,8 @@ public class GameModel {
 			this.level = 7;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			PatrollingBigEnemySprite sp = new PatrollingBigEnemySprite(15*50,9*50,4);
 			sp.setSpeed(8);
@@ -209,7 +216,8 @@ public class GameModel {
 			this.level = 8;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 			this.enemylist.add(new CircleBigEnemySprite(8*50,4*50,2,1));
 			this.enemylist.add(new CircleBigEnemySprite(12*50,8*50,4,1));
@@ -239,7 +247,8 @@ public class GameModel {
 			this.level = 9;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 		
 			
@@ -267,7 +276,8 @@ public class GameModel {
 			this.level = 10;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
-			this.map = new Image("file:res/background/bg.jpg");
+			String path = ClassLoader.getSystemResource("background/bg.jpg").toString();
+			this.map = new Image(path);
 			this.enemylist = new ArrayList<EnemySprite>();
 		
 			

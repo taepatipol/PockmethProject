@@ -4,7 +4,8 @@ public class StartPowerup extends Powerup{
 
 	public StartPowerup(double x , double y) {
 		setPosition(x,y);
-		setImage("file:res/sprite/startPowerup.png");
+		String path = ClassLoader.getSystemResource("sprite/startPowerup.png").toString();
+		setImage(path);
 	}
 	
 	

@@ -3,7 +3,8 @@ package model;
 public class WallSprite extends Sprite{
 	public WallSprite() {
 		super();
-		setImage("file:res/sprite/wall.png");
+		String path = ClassLoader.getSystemResource("sprite/wall.png").toString();
+		setImage(path);
 	}
 	
 	

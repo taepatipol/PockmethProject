@@ -14,7 +14,8 @@ public class MainMenu extends Canvas {
 	public MainMenu() {
 		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		GraphicsContext gc = this.getGraphicsContext2D();
-		Image background = new Image("file:res/background/welcome.jpg");
+		String path = ClassLoader.getSystemResource("background/welcome.jpg").toString();
+		Image background = new Image(path);
 		gc.clearRect(0, 0, 1200, 750);
 		gc.drawImage(background, 0, 0);
 		this.addKeyEventHandler();
