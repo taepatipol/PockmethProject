@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import ui.Sprite;
 
 public class GameModel {
 	
@@ -40,7 +39,7 @@ public class GameModel {
 	//function to get new model
 	public GameModel(int i) {
 		if(i == 1) {
-			System.out.println("Level1");
+			
 			this.level = 1;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -60,7 +59,7 @@ public class GameModel {
 			
 		}
 		if(i == 2) {
-			System.out.println("Level2");
+			
 			this.level = 2;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -76,7 +75,7 @@ public class GameModel {
 			
 		}
 		if(i==3) {
-			System.out.println("Level3");
+			
 			this.level = 3;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -95,7 +94,7 @@ public class GameModel {
 			this.powerup.add(new SlowPowerup(200,340));
 		}
 		if(i==4) {
-			System.out.println("Level4");
+			
 			this.level = 4;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -114,7 +113,7 @@ public class GameModel {
 			this.exit = new ExitSprite();
 		}
 		if(i==5) {
-			System.out.println("Level5");
+			
 			this.level = 5;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -137,7 +136,7 @@ public class GameModel {
 			this.exit = new ExitSprite();
 		}
 		if(i==6) {
-			System.out.println("Level6");
+			
 			this.level = 6;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -159,7 +158,7 @@ public class GameModel {
 			this.exit = new ExitSprite();
 		}
 		if(i==7) {
-			System.out.println("Level7");
+			
 			this.level = 7;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -206,7 +205,7 @@ public class GameModel {
 			this.exit = new ExitSprite();
 		}
 		if(i==8) {
-			System.out.println("Level8");
+			
 			this.level = 8;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -236,7 +235,7 @@ public class GameModel {
 			this.exit = new ExitSprite();
 		}
 		if(i==9) {
-			System.out.println("Level9");
+			
 			this.level = 9;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -264,7 +263,7 @@ public class GameModel {
 		
 		
 		if(i==10) {
-			System.out.println("Level10");
+			
 			this.level = 10;
 			this.elaspedNanoTime = 0;
 			this.player = new PlayerSprite();
@@ -290,16 +289,12 @@ public class GameModel {
 			this.powerup = new ArrayList<Powerup>();
 			for(int y = 3;y<=13;y++) {
 				if(y<5) {
-					//this.powerup.add(new StartPowerup(5*50,y*50));
 					this.powerup.add(new StartPowerup(10*50,y*50));
-					//this.powerup.add(new StartPowerup(15*50,y*50));
 					this.powerup.add(new StartPowerup(20*50,y*50));
 				}
 				else if(y>11) {
 					this.powerup.add(new StartPowerup(5*50,y*50));
-					//this.powerup.add(new StartPowerup(10*50,y*50));
 					this.powerup.add(new StartPowerup(15*50,y*50));
-					//this.powerup.add(new StartPowerup(20*50,y*50));
 				}
 				else {
 					this.powerup.add(new StartPowerup(5*50,y*50));
@@ -338,7 +333,7 @@ public class GameModel {
 		return (int)x;
 	}
 	
-	public ArrayList<WallSprite> border() {
+	private ArrayList<WallSprite> border() {
 		 ArrayList<WallSprite> b = new ArrayList<WallSprite>();
 		 for(double i=-0;i<1250;i+=50) {
 			 WallSprite sp = new WallSprite();
@@ -361,7 +356,7 @@ public class GameModel {
 		 return b;
 	}
 	
-	public ArrayList<WallSprite> createWall(int x1,int y1,int x2,int y2){
+	private ArrayList<WallSprite> createWall(int x1,int y1,int x2,int y2){
 		ArrayList<WallSprite> l = new ArrayList<WallSprite>();
 		for(int x = x1; x<=x2; x++) { for(int y = y1; y<=y2; y++) {
 			WallSprite sp = new WallSprite();

@@ -5,7 +5,6 @@ import java.util.Random;
 public class BigEnemySprite extends EnemySprite{
 	
 	
-	
 	public BigEnemySprite(double x,double y) {
 		super();
 		setPosition(x,y);

@@ -1,7 +1,5 @@
 package model;
 
-import ui.Sprite;
-
 public class ExitSprite extends Sprite{
 	public ExitSprite() {
 		super();

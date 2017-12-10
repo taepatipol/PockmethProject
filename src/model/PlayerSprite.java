@@ -1,7 +1,5 @@
 package model;
 
-import ui.Sprite;
-
 public class PlayerSprite extends Sprite {
 	
 	private boolean isInvinvible;

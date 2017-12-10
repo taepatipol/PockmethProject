@@ -30,7 +30,7 @@ public final class SceneManager {
 		//TODO Fill Code
 		primaryStage.setScene(mainMenuScene);
 		mainMenuCanvas.requestFocus();
-	//	playMainMenuMusic(); // Remove this and its alright? Why?
+	
 		
 	}
 
@@ -58,11 +58,11 @@ public final class SceneManager {
 						while(isBackgroundMusicOn) {
 							backgroundMusic = new AudioClip("file:res/sound/end.mp3");
 							backgroundMusic.play();
-					//		System.out.println("Thread Running0");
+				
 							try {
 								Thread.sleep(65000);
 								
-							} catch (Exception e) {System.out.println("Shutdown");}
+							} catch (Exception e) {}
 							}
 						
 					}
@@ -87,11 +87,11 @@ public final class SceneManager {
 				while(isBackgroundMusicOn) {
 					backgroundMusic = new AudioClip("file:res/sound/home.mp3");
 					backgroundMusic.play();
-			//		System.out.println("Thread Running1");
+			
 					try {
 						Thread.sleep(27000);
 						
-					} catch (Exception e) {System.out.println("Shutdown");}
+					} catch (Exception e) {}
 					}
 				
 			}
@@ -118,11 +118,11 @@ public final class SceneManager {
 				while(isBackgroundMusicOn) {
 					backgroundMusic = new AudioClip("file:res/sound/bg.mp3");
 					backgroundMusic.play();
-		//			System.out.println("Thread Running2");
+	
 					try {
 						Thread.sleep(14500);
 						
-					} catch (Exception e) {System.out.println("Shutdown");}
+					} catch (Exception e) {}
 					}
 				
 			}

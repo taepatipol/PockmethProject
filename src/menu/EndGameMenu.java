@@ -11,20 +11,22 @@ public class EndGameMenu extends Canvas {
 
 	public EndGameMenu() {
 		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
-
 		GraphicsContext gc = this.getGraphicsContext2D();
 		Image background = new Image("file:res/background/end.jpg");
 		gc.clearRect(0, 0, 1200, 750);
 		gc.drawImage(background, 0, 0);
 		this.addKeyEventHandler();
-		//Play Main Menu Music
 		SceneManager.playMainMenuMusic();
 	}
 	
 	private void addKeyEventHandler() {
-		//Main Menu event handler; Enter and exit
+		//End Menu event handler; Enter and exit
 		this.setOnKeyPressed((KeyEvent event) -> {
-			if(event.getCode().equals(KeyCode.ENTER)) { SceneManager.stopBackgroundMusic();SceneManager.gotoMainMenu();SceneManager.playMainMenuMusic();}
+			if(event.getCode().equals(KeyCode.ENTER)) { 
+				SceneManager.stopBackgroundMusic();
+				SceneManager.gotoMainMenu();
+				SceneManager.playMainMenuMusic();
+			}
 			if(event.getCode().equals(KeyCode.ESCAPE)) {Platform.exit() ; }
 		});
 	

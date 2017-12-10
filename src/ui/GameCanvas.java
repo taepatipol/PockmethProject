@@ -18,6 +18,7 @@ import model.PatrollingBigEnemySprite;
 import model.PatrollingEnemySprite;
 import model.Powerup;
 import model.SlowPowerup;
+import model.Sprite;
 import model.StartPowerup;
 import model.StopPowerup;
 import model.WallSprite;
@@ -228,7 +229,7 @@ public class GameCanvas extends Canvas {
 		//Keyboard event handler
 		CodeUtility cu = new CodeUtility();
 		this.setOnKeyPressed((KeyEvent event) -> {
-			if(!cu.isPressed) {	
+			if(!cu.isPressed()) {	
 				cu.setPressed(true);
 				int sp = model.getPlayer().getSpeed();
 		        if (event.getCode()==KeyCode.W) {

@@ -1,4 +1,4 @@
-package ui;
+package model;
 
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
